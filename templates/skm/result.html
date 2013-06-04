@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>比赛结果——SKM第五届白色情人祭</title>
+  <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+  <link rel="Shortcut Icon" href="/favicon.ico">
+  <link rel="Bookmark" href="/favicon.ico">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="/static/js/snowfall.jquery.js"></script>
+  <script type="text/javascript" src="/static/js/snowfall.js"></script>
+  <style type="text/css">
+    body {
+      padding-top: 26px;
+    }
+  </style>
+</header>
+
+<body>
+  <div class="mycontainer">
+  	<div style="padding-top:30px;"></div>
+    <a href="{% url skm_index %}"><div class="base1_top"></div></a>
+	<div class="base1_nav">
+	  <a class="base1_introduce" href="{% url skm_introduce %}"></a>
+	  <a class="base1_signup" href="{% url skm_white_day_signup %}"></a>
+	  <a class="base1_arrangement" href="/2013/"></a>
+	  <a class="base1_previous" href="#"></a>
+	</div>
+
+	<div class="par_main">
+	  <div class="par_members">
+	  	<br />
+	  	<img class="par_members_pic" src="/static/img/result.png"></img>
+	  	<div class="par_members_text">
+	  	  <br />
+	  	  <p style="font-size:18px; text-align:center;">前5名</p>
+	  	  <table style="margin:auto;" class="table table-condensed">
+	  	  	<thead>
+	  	  	  <tr>
+	  	  	  	<th>名次</th>
+	  	  	  	<th>作者</th>
+	  	  	  	<th>作品名</th>
+	  	  	  	<th>同步加分</th>
+	  	  	  </tr>
+	  	  	</thead>
+	  	  	<tbody>
+		  	  <tr>
+		  	  	  <td>1</td>
+		  	      <td>杏本詩歌</td>
+		  	      <td>siika</td>
+		  	      <td>0</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>2</td>
+		  	      <td>神夜</td>
+		  	      <td>桜华月</td>
+		  	      <td>0</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>3</td>
+		  	      <td>葉月</td>
+		  	      <td>我所一直追逐的理想——</td>
+		  	      <td>1</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>4</td>
+		  	      <td>Train</td>
+		  	      <td>You are not alone</td>
+		  	      <td>0</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>5</td>
+		  	      <td>Hoshino@Yuu</td>
+		  	      <td>INNOCENT</td>
+		  	      <td>5</td>
+		  	  </tr>
+		  	</tbody>
+	  	  </table>
+
+
+	  	  <p style="font-size:18px; text-align:center; margin-top:50px;">同步前三名</p>
+	  	  <table style="margin:auto;" class="table table-condensed">
+	  	  	<thead>
+	  	  	  <tr>
+	  	  	  	<th>作者</th>
+	  	  	  	<th>作品名</th>
+	  	  	  	<th>同步票数</th>
+	  	  	  </tr>
+	  	  	</thead>
+	  	  	<tbody>
+	  	  	{% for mad in mads%}
+		  	  <tr>
+		  	      <td>{{ mad.author }}</td>
+		  	      <td>{{ mad.title }}</td>
+		  	      <td>{{ mad.votes }}</td>
+		  	  </tr>
+		  	{% endfor %}
+	  	  	</tbody>
+	  	  </table>
+
+
+	  	  <p style="margin-top:50px;font-size:15px;">*详情请@hotfloor</p>
+	  	</div>
+	  </div>
+	</div>
+  </div>
+
+
+  <div class="footer" style="margin-top:-10px;">
+    <div class="logo"><a href="http://skm-studio.org/bbs/">
+    <img src="/static/img/logo.png"></img></a></div>
+    <div class="copyright"><p>Copyright &copy;Sakuramai Mad Studio</p></div>
+   </div>
+</body>
+</html>

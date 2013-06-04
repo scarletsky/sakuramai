@@ -1,0 +1,15 @@
+---
+name: sakuramai
+version: 1
+
+libraries: 
+- name: django 
+  version: "1.4" 
+handlers: 
+- url: /static 
+  static_dir: static 
+cron:
+- url: /cron/syncvotes/
+  schedule: "0 0 * * *"
+- url: /cron/countday/
+  schedule: "30 19 * * *"

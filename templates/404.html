@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bad Request(404)</title>
+  <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+  <link rel="Shortcut Icon" href="/favicon.ico">
+  <link rel="Bookmark" href="/favicon.ico">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="/static/js/snowfall.jquery.js"></script>
+  <script type="text/javascript" src="/static/js/snowfall.js"></script>
+  <style type="text/css">
+    body {
+      padding-top: 26px;
+    }
+  </style>
+</header>
+
+
+<body>
+
+<div id="layer" style="height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index:9998; display: none;background-color: none;background-color: black;opacity: 0.8; filter:alpha(opacity=20);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";"></div>
+
+  <div class="mycontainer">
+  	<div style="padding-top:30px;"></div>
+    <a href="{% url skm_index %}"><div class="base1_top"></div></a>
+	<div class="base1_nav">
+	  <a class="base1_introduce" href="{% url skm_introduce %}"></a>
+	  <a class="base1_signup" href="{% url skm_white_day_signup %}"></a>
+	  <a class="base1_arrangement" href="#"></a>
+	  <a class="base1_previous" href="#"></a>
+  </div>
+
+  <div class="error_main">
+    <p class="error">404.................<img src="/static/img/404.gif"></img></p>
+  </div>
+
+
+
+  <div class="footer" style="margin-top:-10px;">
+    <div class="logo"><a href="http://skm-studio.org/bbs/">
+    <img src="/static/img/logo.png"></img></a></div>
+    <div class="copyright"><p>Copyright &copy;Sakuramai Mad Studio</p></div>
+  </div>
+
+</body>
+</html>

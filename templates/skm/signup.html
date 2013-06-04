@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>非诚勿扰——SKM第五届白色情人祭</title>
+  <link rel="Shortcut Icon" href="/favicon.ico">
+  <link rel="Bookmark" href="/favicon.ico">
+  <link href="/static/css/main.css" type="text/css" rel="stylesheet" />  
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+  <style type="text/css">
+    body {
+      padding-top: 26px;
+    }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="/static/js/jqBootstrapValidation.js"></script>
+  <script type="text/javascript" src="/static/js/signup.js"></script>
+  <script src="/static/js/snowfall.jquery.js" type="text/javascript"></script>
+  <script src="/static/js/snowfall.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="mycontainer">
+  	<div style="padding-top:30px"></div>
+    <a href="{% url skm_index %}"><div class="base1_top"></div></a>
+  	<div class="base1_nav">
+  	  <a class="base1_introduce" href="{% url skm_introduce %}"></a>
+  	  <a class="base1_signup" href="{% url skm_white_day_signup %}"></a>
+  	  <a class="base1_arrangement" href="/2013/"></a>
+  	  <a class="base1_previous" href="#"></a>
+  	</div>
+  	<div class="sign_main">
+  	  <div class="sign_point">
+  	  	<img src="/static/img/sign_points.gif"></img>
+  	  	<div class="about_event_text">
+          <br />
+          <br />
+  	  	  <p style="color:#ff3985; font-size:1.5em; margin-top:10px">组队参赛</p>
+    		  <p style="font-size:1.5em;">请填写组队双方的ID，双方的联系方式，以及以往作品链接</p>
+    		  <br />
+    		  <p style="color:#ff3985; font-size:1.5em; margin-top:10px" >单人参赛</p>
+    		  <p style="font-size:1.5em;">请填写ID，编号（注），联系方式，以及以往作品链接。</p>
+    		  <br />
+    		  <p style="color:#ff3985; font-size:1.5em; margin-top:10px">报名截止时间</p>
+    		  <p style="font-size:1.5em;">2013年1月23日 20:00</p>
+    		  <br />
+          <p style="color:#ff3985; font-size:1.5em; margin-top:10px">作品截稿日期</p>
+          <p style="font-size:1.5em;">2013年3月10日</p>
+          <br />
+          <p style="color:#ff3985; font-size:1.8em;">报名截止，期待大家的作品！</p>
+  	  	  <br />
+  	  	</div>
+  	  </div>
+
+  	  <div class="sign_member">
+  	  	<img src="/static/img/sign_members.gif"></img>
+  	  	<div class="sign_member_text">
+          <p style="color:#65b375;font-size:1.5em; margin-top:10px">报名人数：{{ count }}</p>
+          <p style="color:#65b375;font-size:1.5em; margin-top:10px"><a href="/participants/" style="color:#65b375">最终参赛名单</a></p>
+  	    </div>
+  	  </div>
+  	</div>
+  	<div class="footer">
+          <div class="logo"><a href="http://skm-studio.org/bbs/">
+          <img src="/static/img/logo.png"></img></a></div>
+          <div class="copyright"><p>Copyright &copy;Sakuramai Mad Studio</p></div>
+    </div>
+  </div>
+</body>
+</html>

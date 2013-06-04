@@ -1,0 +1,16 @@
+<uwsgi>
+  <socket>127.0.0.1:9000</socket>
+  <listen>8080</listen>
+  <master>true</master>
+  <pidfile>/var/run/nginx.pid</pidfile>
+  <processes>8</processes>
+  <pythonpath>/home/scarlex/sae/sakuramai/1/sakuramai</pythonpath>
+  <pythonpath>/home/scarlex/sae/sakuramai/1</pythonpath>
+  <module>wsgi</module>
+  <profiler>true</profiler>
+  <memory-report>true</memory-report>
+  <enable-threads>true</enable-threads>
+  <logdate>true</logdate>
+  <limit-as>6048</limit-as>
+  <daemonize>/home/scarlex/nginx-log/django.log</daemonize>
+</uwsgi>
