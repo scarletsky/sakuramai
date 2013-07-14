@@ -1,2 +1,0 @@
-this is haha.txt
-and this is myText branch!
