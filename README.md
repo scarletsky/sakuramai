@@ -1,9 +1,7 @@
 sakuramai
 =========
 
-the 5th event of sakuramai
+Sakuramai's white day event project!
 
-http://sakuramai.sinaapp.com/
-源码
+Designed by hotfloor
 
-使用django开发的网站
