@@ -16,6 +16,7 @@ local.properties
 .settings/
 .loadpath
 ./static/
+./white/migrations
 
 # External tool builders
 .externalToolBuilders/
