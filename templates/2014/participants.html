@@ -1,0 +1,45 @@
+{% extends '2014/base.html' %}
+
+{% block title %}
+<title>自愿刷地板的勇士们</title>
+{% endblock %}
+
+
+{% block main %}
+<div class="participants-outer">
+    <div class="love-together"></div>
+    <ul class="participants-group">
+    {% for team in team_group %}
+        <li class="team">
+        {% for author in team %}
+        <span class="author t-white">{{ author.author }}</span>
+            {% if forloop.first %}
+            <span class="icon-pair heart"></span>
+            {% endif %}
+        {% endfor %}
+        </li>
+
+    {% endfor %}
+        
+    </ul>
+</div>
+
+<div class="participants-outer">
+    <div class="love-together-will"></div>
+    <ul class="participants-group">
+    {% for pair in pair_group %}
+        <li class="team">
+        {% for author in pair %}
+        <span class="author t-white">{{ author.author }}</span>
+            {% if forloop.first %}
+            <span class="icon-pair cross"></span>
+            {% endif %}
+        {% endfor %}
+
+        </li>
+    {% endfor %}
+
+    </ul>
+</div>
+
+{% endblock %}

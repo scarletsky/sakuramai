@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <table border="1">
+    	<thead>
+    		<tr>
+    			<th>index</th>
+    			<th>title</th>
+    			<th>author</th>
+    			<th>music</th>
+    			<th>year</th>
+                <th>day</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		{% for mad in mads %}
+    		<tr>
+    			<td>{{ forloop.counter }}</td>
+    			<td>{{ mad.title }}</td>
+    			<td>{{ mad.author }}</td>
+    			<td>{{ mad.music}}</td>
+    			<td>{{ mad.year }}</td>
+                <td>{{ mad.day }}</td>
+    		</tr>
+    		{% endfor %}
+    	</tbody>
+    </table>
+<h4>你的IP:{{ ip }}</h4>
+{% endblock %}

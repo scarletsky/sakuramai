@@ -1,0 +1,54 @@
+{% extends '2014/base.html' %}
+
+{% block title %}
+<title>围观基佬们刷地板</title>
+{% endblock %}
+
+
+{% block main %}
+<ul class="schedule-groups">
+    {% for each_day in schedule %}
+        <li class="schedule-group clearfix">
+            <h4 class="day-title">
+                <a href="{{ each_day.day.day }}/">{{ each_day.day.description }}</a>
+            </h4>
+
+            {% for team in each_day.competitors %}
+
+                {% for mad in team %}
+                    <div class="mad-outer
+                               {% if forloop.counter0|divisibleby:2 %} 
+                                   left 
+                               {% else %}
+                                   right
+                               {% endif %}">
+                        <div class="cover-outer
+                                   {% if forloop.counter0|divisibleby:2 %}
+                                       pull-left
+                                   {% else %}
+                                       pull-right
+                                   {% endif %}">
+                            <img src="http://placehold.it/400x500" alt="">
+                        </div>
+
+                        <p class="mad-title
+                                 {% if forloop.counter0|divisibleby:2 %} 
+                                     t-left 
+                                 {% else %}
+                                     t-right
+                                 {% endif %}">{{ mad.title }}</p>
+                        <p class="mad-author
+                                 {% if forloop.counter0|divisibleby:2 %} 
+                                     t-right 
+                                 {% else %}
+                                     t-left
+                                 {% endif %}">
+                            {{ mad.author }}
+                        </p>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

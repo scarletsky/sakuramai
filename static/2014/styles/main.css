@@ -1,0 +1,408 @@
+body {
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+button {
+    border: 0;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.mgB20 {
+    margin-bottom: 20px;
+}
+
+/* Layout */
+
+.wrapper {
+    width: 1000px;
+    height: 100%;
+    min-height: 100%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+#index-cover {
+    width: 913px;
+    height: 616px;
+    margin: 50px auto;
+    background: url('../images/index-cover.png') no-repeat;
+}
+
+#queen {
+    height: 100%;
+}
+
+#queen-x {
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+}
+
+#queen .logo-ev {
+    width: 1366px;
+    height: 481px;
+    margin: auto;
+    background: url('../images/logo-ev.gif') no-repeat;
+}
+
+#queen-x .logo-ev {
+    width: 952px;
+    height: 291px;
+    margin: auto;
+    background: url('../images/logo-ev-x.gif') no-repeat;
+}
+
+.nav {
+    width: 1000px;
+    margin: 10px auto;
+}
+
+.nav a {
+    display: inline-block;
+    margin-right: -4px;
+    list-style-type: none;
+    cursor: pointer;
+    margin-left: 185px;
+}
+
+.nav a:first-child {
+    margin-left: 0;
+}
+
+/* Nav for Queen */
+
+#queen .nav a {
+    width: 111px;
+    height: 46px;
+    background: url('../images/nav.jpg') no-repeat;
+}
+
+#queen .nav a.info {
+    background-position: 0 0;
+}
+
+#queen .nav a.info {
+    background-position: 0 0;
+}
+
+#queen .nav a.info:hover {
+    background-position: 0 -48px;
+}
+
+#queen .nav a.signup {
+    background-position: -110px 0;
+}
+
+#queen .nav a.signup:hover {
+    background-position: -110px -48px;
+}
+
+#queen .nav a.watch {
+    background-position: -220px 0;
+}
+
+#queen .nav a.watch:hover {
+    background-position: -220px -49px;
+}
+
+#queen .nav a.prev {
+    background-position: -333px 0;
+}
+
+#queen .nav a.prev:hover {
+    background-position: -333px -48px;
+}
+
+/* Nav for Queen-X */
+
+#queen-x .nav a {
+    width: 111px;
+    height: 40px;
+    background: url('../images/nav-x.gif') no-repeat;
+}
+
+#queen-x .nav a.info {
+    background-position: 0 0;
+}
+
+#queen-x .nav a.info {
+    background-position: 0 0;
+}
+
+#queen-x .nav a.info:hover {
+    background-position: 0 -40px;
+}
+
+#queen-x .nav a.signup {
+    background-position: -110px 0;
+}
+
+#queen-x .nav a.signup:hover {
+    background-position: -110px -40px;
+}
+
+#queen-x .nav a.watch {
+    background-position: -220px 0;
+}
+
+#queen-x .nav a.watch:hover {
+    background-position: -220px -41px;
+}
+
+#queen-x .nav a.prev {
+    background-position: -333px 0;
+}
+
+#queen-x .nav a.prev:hover {
+    background-position: -333px -41px;
+}
+
+.footer {
+    width: 1000px;
+    height: auto;
+    margin: 20px auto;
+}
+
+#queen .footer {
+    margin-top: 80px;
+}
+
+.footer .logo-skm {
+    width: 84px;
+    height: 35px;
+    margin: 0 auto;
+    background: url('../images/logo-skm.gif') no-repeat;
+}
+
+.footer .hotfloor {
+    text-align: center;
+}
+
+/* End Layout */
+
+/* Signup Page */
+
+.title {
+    font-size: 18px;
+    line-height: 24px;
+    color: white;
+}
+
+.content {
+    font-size: 16px;
+    line-height: 20px;
+    color: #aa1717;
+}
+
+.signup-rule-detail {
+    width: 120px;
+    height: 22px;
+    margin: 0 auto;
+    background: url('../images/signup-rule-detail.gif') no-repeat;
+}
+
+.signup-btn {
+    width: 162px;
+    height: 29px;
+    display: block;
+    margin: 40px auto 0;
+    background: url('../images/signup-btn.gif') no-repeat;
+}
+
+/* End Signup Page */
+
+/* Info Page */
+.about-white {
+    width: 244px;
+    height: 23px;
+    margin: 30px auto;
+    background: url('../images/about-white.gif') no-repeat;
+}
+
+.signup-rule {
+    width: 120px;
+    height: 22px;
+    margin: 30px auto;
+    background: url('../images/signup-rule.gif') no-repeat;
+}
+
+.mad-require {
+    width: 121px;
+    height: 23px;
+    margin: 30px auto;
+    background: url('../images/mad-require.gif') no-repeat;
+}
+
+.signup-nav {
+    width: 120px;
+    height: 22px;
+    margin: 30px auto;
+    background: url('../images/signup-nav.gif') no-repeat;
+}
+
+/* Participants Page */
+
+.love-together {
+    width: 128px;
+    height: 25px;
+    margin: 30px auto;
+    background: url('../images/love-together.jpg') no-repeat;
+}
+
+.love-together-will {
+    width: 147px;
+    height: 25px;
+    margin: 30px auto;
+    background: url('../images/love-together-will.jpg') no-repeat;
+}
+
+.participants-outer {
+    width: 660px;
+    margin: 30px auto;
+}
+
+.participants-group .team {
+    list-style-type: none;
+}
+
+.participants-group .team.no-mgL {
+    margin-left: 0;
+}
+
+.participants-group .team .author {
+    width: 265px;
+    height: 41px;
+    line-height: 41px;
+    font-size: 20px;
+    text-align: center;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+}
+
+.participants-group .team .author:first-letter {
+    color: #bd1313;
+}
+.participants-group .team span.icon-pair {
+    width: 41px;
+    height: 38px;
+    display: inline-block;
+}
+
+.participants-group .team span.icon-pair.heart {
+    background: url('../images/heart.gif') no-repeat;
+}
+
+.participants-group .team span.icon-pair.cross {
+    background: url('../images/cross.gif') no-repeat;
+}
+
+/* End Participants Page */
+
+/* Schedule Page */
+.schedule-groups {
+    width: 990px;
+    padding: 0;
+    margin: auto;
+}
+
+.schedule-group {
+    width: 984px;
+    height: 324px;
+    margin: 50px auto;
+    background: url('../images/schedule-group-bg.png') no-repeat;
+}
+
+.schedule-group .day-title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    display: block;
+}
+
+.schedule-group .day-title a {
+    color: white;
+}
+
+.schedule-group .day-title a:hover {
+    text-decoration: none;
+}
+
+.schedule-group .mad-outer {
+    width: 412px;
+    height: 278px;
+    margin-right: -4px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.schedule-group .mad-outer.left {
+    float: left;
+    margin-left: 20px;
+}
+
+.schedule-group .mad-outer.right {
+    float: right;
+    margin-right: 20px;
+}
+
+
+.schedule-group .mad-outer .cover-outer {
+    width: 390px;
+    height: 220px;
+    margin-bottom: 5px;
+}
+
+.schedule-group .mad-outer .cover-outer img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.schedule-group .mad-outer .mad-title {
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 7px;
+    color: white;
+    clear: both;
+}
+
+.schedule-group .mad-outer .mad-author {
+    font-size: 17px;
+    line-height: 17px;
+    padding: 0 10px;
+    color: black;
+}
+
+
+/* End Schedule Page */
+
+.t-white {
+    color: white;
+}
+
+.t-center {
+    text-align: center;
+}
+
+.t-left {
+    text-align: left;
+}
+
+.t-right {
+    text-align: right;
+}

@@ -1,0 +1,65 @@
+﻿{% extends '2013/base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+
+<div class="par_main">
+    <div class="par_members">
+        <br />
+        <img class="par_members_pic" src="{% static '2013/img/par_members.gif' %}"></img>
+        <div class="par_members_text">
+            <br />
+            <p style="font-size:1.5em; margin-left:270px;">结婚组</p>
+            <table style="margin:auto;" class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th style="width:200px; text-align:center; font-size:1.5em">汉纸</th>
+                        <th></th>
+                        <th style="width:200px; text-align:center; font-size:1.5em">妹纸</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for team in team_group %}
+                    <tr>
+                    {% for i in team %}
+                        <td style="text-align:center; font-size:15px;">{{ i.author }}</td>
+                        {% if forloop.first %}
+                        <td style="text-align:center;"><span class="par_members_heart"></span></td>
+                        {% endif %}
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <br />
+            <br />
+
+            <p style="font-size:1.5em; margin-left:270px;">相亲组</p>
+            <table style="margin:auto;" class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th style="width:200px; text-align:center; font-size:1.5em">可爱的男孩纸</th>
+                        <th></th>
+                        <th style="width:200px; text-align:center; font-size:1.5em">❤萌妹子❤</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for single in pair_group %}
+                    <tr>
+                    {% for j in single %}
+                        <td style="text-align:center; font-size:15px;">{{ j.author }}</td>
+                        {% if forloop.first %}
+                        <td style="text-align:center;"><span class="par_members_clover"></span></td>
+                        {% endif %}
+                    {% endfor %}
+                  </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br />
+            <p style="font-size:15px; margin: 0;">*注意: 小甜点作品不参加正赛，即不参加奖品评选。</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% spaceless %}
+
+{% block main %}
+
+<table border="1">
+	<thead>
+		<th>left</th>
+		<th>day</th>
+		<th>right</rh>
+	</thead>
+	<tbody>
+{% for day in final_index %}
+	<tr>
+    {% for mad in day %}
+		{% if mad.title %}
+			<td><img src="{{ mad.image }}">{{ mad.title}}</img></td>
+		{% else %}
+			<td><a href={{ mad.url_index}}>{{ mad.display }}</a></td>
+		{% endif %}
+	{% endfor %}
+	</tr>
+{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}
+
+{% endspaceless %}

@@ -1,0 +1,37 @@
+﻿{% extends '2013/base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+<div class="sign_main">
+    <div class="sign_point">
+        <img src="{% static '2013/img/sign_points.gif' %}"></img>
+        <div class="about_event_text">
+        <br />
+        <br />
+        <p style="color:#ff3985; font-size:1.5em; margin-top:10px">组队参赛</p>
+        <p style="font-size:1.5em;">请填写组队双方的ID，双方的联系方式，以及以往作品链接</p>
+        <br />
+        <p style="color:#ff3985; font-size:1.5em; margin-top:10px" >单人参赛</p>
+        <p style="font-size:1.5em;">请填写ID，编号（注），联系方式，以及以往作品链接。</p>
+        <br />
+        <p style="color:#ff3985; font-size:1.5em; margin-top:10px">报名截止时间</p>
+        <p style="font-size:1.5em;">2013年1月23日 20:00</p>
+        <br />
+        <p style="color:#ff3985; font-size:1.5em; margin-top:10px">作品截稿日期</p>
+        <p style="font-size:1.5em;">2013年3月10日</p>
+        <br />
+        <p style="color:#ff3985; font-size:1.8em;">报名截止，期待大家的作品！</p>
+        <br />
+    </div>
+</div>
+
+<div class="sign_member">
+    <img src="{% static '2013/img/sign_members.gif' %}">
+    <div class="sign_member_text">
+        <p style="color:#65b375;font-size:1.5em; margin-top:10px">报名人数：{{ count }}</p>
+        <p style="color:#65b375;font-size:1.5em; margin-top:10px">
+            <a href="/2013/participants/" style="color:#65b375">最终参赛名单</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

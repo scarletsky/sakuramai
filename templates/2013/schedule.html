@@ -1,0 +1,126 @@
+{% extends '2013/base.html' %}
+{% load staticfiles %}
+
+{% block script %}
+<script src="{% static '2013/js/vote.js' %}"></script>
+<script src="{% static '2013/js/jquery-1.10.2.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+
+<div id="layer" style="height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index:9998; display: none;background-color: none;background-color: black;opacity: 0.8; filter:alpha(opacity=20);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";"></div>
+
+<div class="schedule_main">
+    <div class="schedule_tips">
+
+        <p class="tips_title">比赛结果</p>
+        <div class="tips_detail">
+            <p>
+              <img src="{% static '2013/img/hotfloor.gif' %}" style="width: 90px; height: 90px;">
+              <a href="/2013/result" style="color:#515151">诶嘿嘿～叫我女王！</a>
+            </p>
+        </div>
+
+        <br />
+        <br />
+
+        <p class="tips_title">在线地址</p>
+        <div class="tips_detail">
+            <p>A站地址：<a href="http://www.acfun.tv/v/ac591742" style="color:#515151">http://www.acfun.tv/v/ac591742</a></p>
+            <p>B站地址：<a href="http://www.bilibili.tv/video/av502734/" style="color:#515151">http://www.bilibili.tv/video/av502734/</a></p>
+        </div>
+
+        <br />
+        <br />
+
+        <p class="tips_title">观赛指南</p>
+        <div class="tips_detail">
+            <p>点封面图可以播放哦！播放期间点黑屏背景可以退出播放！</p>
+            <p>按<span style="color: #ff3985;">心</span>和<span style="color:#65b375">四叶草</span>可以投票哦</p>
+            <p>不看完每只MAD就关掉会被BGM诅咒哦</p>
+            <del><p style="color:#d1d1d1;">chrome、safari以外的浏览器请按暂停后再关闭播放器。</p></del>
+            <p>点天数进入详细页面，窥探每个MAD的秘密！</p>
+            <p>(小tips:基友被NTR后就会变成四叶草yoooooo!)</p>
+        </div>
+
+        <br />
+        <br />
+          
+        <p class="tips_title">同步投票规则</p>
+        <div class="tips_detail">
+            <p>投票地址：http://sakuramai.sinaapp.com/2013 </p>
+            <p>投票资格：一人一票，为了您和基友的健康，请勿重复投票。</p>
+            <p>投票注意：投票仅在作品公开后7天内开放，7天后自动关闭。</p>
+            <p>投票目的：同步投票只为测试两个作品是否有心有灵犀的部分。如果觉得有请大胆的按下心或者四叶草吧~</p>
+            <p>同步率得票最终按照得票高低排名。前五组每组人员依次可获得5,4,2,3,1的加分。加分将计入最终作者投票。</p>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="bonus">
+        <p class="bonus_text">Bonus</p>
+        <a href="javascript:void(0)" onclick="show(this);" title="999">
+            <img src="http://i.imgur.com/OBoYEJj.jpg?1" class="bouns_img" />
+        </a>
+        <div id="999" style="position: fixed; margin: auto; width: 960px; height: 540px; left:0; right:0; top:0; bottom:0; z-index:9999; display: none;">
+            <embed src="http://player.youku.com/player.php/sid/XNTM3MTQ2MDA0/v.swf" allowFullScreen="true" quality="high" width="960" height="540" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+        </div>
+    </div>
+
+  	{% for each_day in schedule %}
+  	<div class="day_list">
+        <span class="day">
+            <a href="/2013/{{ each_day.day.day }}/" style="font-size: 18px;">{{ each_day.day.description }}(详细点我)</a>
+        </span>
+        {% for team in each_day.competitors %}
+
+
+  	  <div class="team">
+  	  	  <div class="team_bg">
+          {% for mad in team %}
+            <span class="team_single">
+              <p class="schedule_title">{{ mad.title }} - {{ mad.author }}</p>
+  	  	      <a href="javascript:void(0)" onclick="show(this);" title="{{ mad.id }}">
+                <img src="{{ mad.image }}" class="cover"></img>
+              </a>
+            </span>
+              <div id="{{ mad.id }}" style="position: fixed; margin: auto; width: 960px; height: 540px; left:0; right:0; top:0; bottom:0; z-index:9999; display: none;">
+                {{ mad.online|safe }}
+              </div>
+  	  	      {% if forloop.first %}
+  	  	        {% if mad.is_ntr %}
+                    <a href="javascript:void(0);" onclick="EndVote();"><span class="clover" ></span></a>
+                {% else %}
+                    <a href="javascript:void(0);" onclick="EndVote();"><span class="love" ></span></a>
+  	  	        {% endif %}
+  	  	      {% endif %}
+  	  	    {% endfor%}
+  	  	  </div>
+  	  </div>
+      {% endfor%}
+  	</div>
+    {% endfor %}
+  </div>
+
+  <script type="text/javascript">
+      var ntr_team = document.getElementsByClassName("clover");
+      for (var i=0; i<ntr_team.length; i++){
+        ntr_team[i].parentElement.parentElement.className = "team_bg_ntr";
+        ntr_team[i].parentElement.parentElement.children[0].children[1].children[0].style.border="1px solid #65b375"
+        ntr_team[i].parentElement.parentElement.children[3].children[1].children[0].style.border="1px solid #65b375"
+      }
+
+      function show(obj){
+        window.id = $(obj).attr("title");
+        document.getElementById('layer').style.display = "inline";
+        document.getElementById(id).style.display = "inline";
+      };
+
+      document.getElementById('layer').onclick = function(){
+        document.getElementById('layer').style.display = "none";
+        document.getElementById(id).style.display = "none";
+      };
+  </script>
+{% endblock %}

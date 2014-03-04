@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}{% endblock %}
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static '2014/styles/normalize.css' %}">
+        <link rel="stylesheet" href="{% static '2014/styles/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static '2014/styles/main.css' %}">
+        <script src="{% static '2014/scripts/jquery-1.10.2.js' %}"></script>
+        <script src="{% static '2014/scripts/bootstrap.min.js' %}"></script>
+        <script src="{% static '2014/scripts/main.js' %}"></script>
+
+        <link rel="shortcut icon" href="/favicon2014.ico?20140222">
+    </head>
+
+    <body>
+        <div id="queen-x">
+            <div class="top">
+                <a href="/2014/">
+                    <div class="logo-ev"></div>
+                </a>
+            </div>
+
+            <div class="nav">
+                <a class="info" href="/2014/info/"></a>
+                <a class="signup" href="/2014/signup/"></a>
+                <a class="watch" href="#"></a>
+                <a class="prev" href="/2013/"></a>
+            </div>
+
+            {% block main %}{% endblock %}
+
+            <div class="footer">
+                <div class="logo-skm"></div>
+                <p class="hotfloor">Copyright © 2008-2014 SakuraMaiMad Studio</p>
+            </div>
+        </div>
+    </body>
+</html>

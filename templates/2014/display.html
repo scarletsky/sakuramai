@@ -1,0 +1,12 @@
+{% extends '2014/base.html' %}
+
+{% block title %}
+<title>基佬大战热地板</title>
+{% endblock %}
+
+
+{% block main %}
+    {% for mad in mads %}
+    <p>{{ mad.title }}</p>
+    {% endfor %}
+{% endblock %}

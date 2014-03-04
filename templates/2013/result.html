@@ -1,0 +1,112 @@
+{% extends '2013/base.html' %}
+{% load staticfiles %}
+
+
+{% block main %}
+	<div class="par_main">
+	  <div class="par_members">
+	  	<br />
+	  	<img class="par_members_pic" src="{% static '2013/img/result.png' %}"></img>
+	  	<div class="par_members_text">
+	  	  <br />
+	  	  <p style="font-size:18px; text-align:center;">前5名</p>
+	  	  <table style="margin:auto;" class="table table-condensed">
+	  	  	<thead>
+	  	  	  <tr>
+	  	  	  	<th>名次</th>
+	  	  	  	<th>作者</th>
+	  	  	  	<th>作品名</th>
+	  	  	  	<th>同步加分</th>
+	  	  	  </tr>
+	  	  	</thead>
+	  	  	<tbody>
+		  	  <tr>
+		  	  	  <td>1</td>
+		  	      <td>杏本詩歌</td>
+		  	      <td>siika</td>
+		  	      <td>0</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>2</td>
+		  	      <td>神夜</td>
+		  	      <td>桜华月</td>
+		  	      <td>0</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>3</td>
+		  	      <td>葉月</td>
+		  	      <td>我所一直追逐的理想——</td>
+		  	      <td>1</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>4</td>
+		  	      <td>Train</td>
+		  	      <td>You are not alone</td>
+		  	      <td>0</td>
+		  	  </tr>
+		  	  <tr>
+		  	  	  <td>5</td>
+		  	      <td>Hoshino@Yuu</td>
+		  	      <td>INNOCENT</td>
+		  	      <td>5</td>
+		  	  </tr>
+		  	</tbody>
+	  	  </table>
+
+
+	  	  <p style="font-size:18px; text-align:center; margin-top:50px;">同步前三名</p>
+	  	  <table style="margin:auto;" class="table table-condensed">
+	  	  	<thead>
+	  	  	  <tr>
+	  	  	  	<th>作者</th>
+	  	  	  	<th>作品名</th>
+	  	  	  	<th>同步票数</th>
+	  	  	  </tr>
+	  	  	</thead>
+	  	  	<tbody>
+              <tr>
+                  <td>Hoshino@Yuu</td>
+                  <td>INNOCENT</td>
+                  <td>75</td>
+              </tr>
+            
+              <tr>
+                  <td>cinteh</td>
+                  <td>deuxmilletreize</td>
+                  <td>75</td>
+              </tr>
+            
+              <tr>
+                  <td>kibum6097</td>
+                  <td>falling love with you</td>
+                  <td>58</td>
+              </tr>
+            
+              <tr>
+                  <td>kryptonite</td>
+                  <td>Ding!Ding!Love!</td>
+                  <td>58</td>
+              </tr>
+            
+              <tr>
+                  <td>寂寞的足迹</td>
+                  <td>战场上の羁绊_艾莉西亚视角</td>
+                  <td>48</td>
+              </tr>
+            
+              <tr>
+                  <td>Z·DARK</td>
+                  <td>战场上の羁绊_维尔金视角</td>
+                  <td>48</td>
+              </tr>
+
+	  	  	</tbody>
+	  	  </table>
+
+	  	  <p style="margin-top:50px;font-size:15px;">*详情请@hotfloor</p>
+	  	</div>
+	  </div>
+	</div>
+  </div>
+
+{% endblock %}

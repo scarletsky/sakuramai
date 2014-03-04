@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% block title%}{% endblock %}
+        {% load staticfiles %}
+        <link href="{% static '2013/bootstrap/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+        <link href="{% static '2013/css/main.css' %}" type="text/css" rel="stylesheet" />
+        {% block style %}{% endblock %}
+        {% block script %}{% endblock %}
+
+        <link rel="Shortcut Icon" href="/favicon2013.ico?20140222">
+        <link rel="Bookmark" href="/favicon2013.ico?20140222"></head>
+    </head>
+
+    <body>
+        {% load staticfiles %}
+        <div class="mycontainer">
+            <div style="padding-top:30px;"></div>
+
+            <a href="/2013"><div class="base1_top"></div></a>
+
+            <div class="base1_nav">
+                <a class="base1_introduce" href="/2013/info"></a>
+                <a class="base1_signup" href="/2013/signup"></a>
+                <a class="base1_arrangement" href="/2013/schedule"></a>
+                <a class="base1_previous" href="#"></a>
+            </div>
+
+
+            {% block main %}{% endblock %}
+
+        </div>
+
+        <div class="footer">
+            <div class="logo">
+                <a href="http://skm-studio.org/bbs/">
+                    <img src="{% static '2013/img/logo.png' %}">
+                </a>
+            </div>
+            <div class="copyright">
+                <p style="font-size: 14px; line-height: 18px;">Copyright &copy;Sakuramai Mad Studio</p>
+            </div>
+       </div>
+  </body>
+</html>

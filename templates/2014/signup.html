@@ -1,0 +1,245 @@
+{% extends '2014/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+<title>开组刷热地板</title>
+{% endblock %}
+
+{% block main %}
+
+<div class="wrapper">
+    <div class="signup-rule-detail"></div>
+    <h4 class="title">组队参赛</h4>
+    <p class="content">请填写组队双方的ID，双方的联系方式，以及以往作品链接</p>
+
+    <h4 class="title">单人参赛</h4>
+    <p class="content">请填写ID，编号（注），联系方式，以及以往作品链接。</p>
+
+    <h4 class="title">报名截止时间</h4>
+    <p class="content">2013年1月23日 20:00</p>
+
+    <h4 class="title">作品截稿日期</h4>
+    <p class="content">2013年3月10日</p>
+
+    <button class="signup-btn" data-toggle="modal" data-target="#signupExpire"></button>
+</div>
+
+<div id="signupExpire" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myqueen" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">迎接你的凄惨结局吧！ </h4>
+            </div>
+
+            <div class="modal-body">
+                <img class="center mgB20" src="{% static '2014/images/lich-queen.jpg' %}" alt="">
+                <p>来吧，我已经基渴难耐了。</p>
+                <p>你们的默默牺牲会得到我的褒奖。</p>
+                <p>亲眼目睹吧，我会把他们都变成基佬。</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Lich Queen饶命</button>
+                <a class="btn btn-danger" href="/2014/participants/">围观基佬团</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- <div id="forHotfloor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myQueen" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">开组刷热地板啦！</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    冰冠堡垒内，魔剑霜之哀伤旁，被困在霜之哀伤中的振宇正在警告着热地板女王。振宇的灵魂说道：“你能感觉的到吗，热地板女王。就在你的身旁，那渐近的压迫感。圣光的正义，已经苏醒。你注定逃不脱，那满身的罪孽。你将受到，无情的审判。因为你所犯下的罪行，因为你所散播的阴森恐怖，以及你所屈从的古老黑暗力量。我只是第一个被你的邪恶吞噬的灵魂，这把剑里还有千万个魂灵，呼喊着，想要得到自由。看看这冰封的城堡，热地板女王，正义的勇士，已经集结在你的门前！”
+                </p>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="signup-single-btn">我要单刷热地板</button>
+                    <button class="btn btn-danger" id="signup-team-btn">和机油一起刷热地板</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="singleForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="single" class="form-horizontal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="hehe">我要单刷热地板！</h4>
+                </div>
+
+                <div class="modal-body">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="author1">用户名</label>
+                        <div class="col-sm-6">
+                            <input class="author form-control" type="text" id="author1" name="author1" placeholder="hotfloor" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="contact1">联系方式</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="contact1" name="contact1" placeholder="hotfloor@skm-queen.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="remark1">备注</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="remark1" name="remark1" placeholder="求组队刷女王" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="pair-num">配对号</label>
+                        <div class="col-sm-6">
+                            <input class="pair-num form-control" type="text" id="pair-num" name="pair-num" placeholder="女王规定要填0~9" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input class="is_team form-control" type="hidden" id="is_team" name="is_team" value="0" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id="single" class="btn btn-primary">这是膝盖，女王陛下</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">热地板万岁</button>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+
+<div id="teamForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="team" class="form-horizontal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="hehe">我要和机油一起刷热地板！</h4>
+                </div>
+
+                <div class="modal-body">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="author1">用户名</label>
+                        <div class="col-sm-6">
+                            <input class="author form-control" type="text" id="author1" name="author1" placeholder="hotfloor" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="contact1">联系方式</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="contact1" name="contact1" placeholder="hotfloor@skm-queen.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="remark1">备注</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="remark1" name="remark1" placeholder="你们这是自寻死路" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="author2">用户名</label>
+                        <div class="col-sm-6">
+                            <input class="author form-control" type="text" id="author2" name="author2" placeholder="HOTFLOOR" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="contact2">联系方式</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="contact2" name="contact2" placeholder="hotfloor-queen@skm-queen.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="remark2">备注</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="remark2" name="remark2" placeholder="我这么屌家里人居然不知道——热地板" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input class="is_team form-control" type="hidden" id="is_team" name="is_team" value="1" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id="team" class="btn btn-primary">这是膝盖，女王陛下</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">热地板万岁</button>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+<div id="formSuccess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">热地板与你同在！</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="alert alert-success">
+                    <p>All Hail HotFloor!</p>
+                    <p>All Hail HotFloor!</p>
+                    <p>All Hail HotFloor!</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div id="formFailure" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">要明白你的处境，凡人</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="alert alert-danger">
+                    <p>你把热地板惹毛了！</p>
+                    <p>你这是自寻死路！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+
+{% endblock %}
+
