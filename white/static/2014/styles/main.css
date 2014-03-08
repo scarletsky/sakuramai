@@ -388,8 +388,68 @@ ul{
     color: black;
 }
 
-
 /* End Schedule Page */
+
+/* Display Page */
+.display-outer {
+    width: 1000px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.display-outer .mad-info-outer {
+    width: 440px;
+    padding: 20px;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    float: left;
+}
+
+.display-outer .mad-info-outer p {
+    font-size: 16px;
+    color: white;
+}
+
+.display-outer .cover-outer {
+    width: 500px;
+    height: 300px;
+    top: -20px;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+.display-outer .cover-outer img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.display-outer .display-outer-bg {
+    width: 980px;
+    height: 300px;
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    background-color: #800;
+}
+
+.display-outer.odd .cover-outer {
+    float: right;
+}
+
+.display-outer.even .cover-outer {
+    float: left;
+}
+
+.display-outer.even .display-outer-bg {
+    left: 20px;
+}
+
+/* End Display Page */
 
 .t-white {
     color: white;
@@ -405,4 +465,15 @@ ul{
 
 .t-right {
     text-align: right;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: ' ';
+    display: table;
+}
+
+
+.clearfix:after {
+    clear: both;
 }

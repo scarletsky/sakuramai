@@ -7,6 +7,25 @@
 
 {% block main %}
     {% for mad in mads %}
-    <p>{{ mad.title }}</p>
+    <div class="display-outer clearfix {% if forloop.counter|divisibleby:2%}even{% else %}odd{% endif %}">
+
+        <div class="cover-outer">
+            <img src="http://placehold.it/500x300" alt="" class="cover">
+        </div>
+
+        <div class="mad-info-outer">
+            <div class="mad-info-offset">
+                <p class="mad-info">TITLE: {{ mad.title }}</p>
+                <p class="mad-info">AUTHOR: {{ mad.author }}</p>
+                <p class="mad-info">DOWNLOAD: no</p>
+                <div>
+                    <p class="mad-info">ABOUT:</p>
+                    <p>233</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="display-outer-bg"></div>
+    </div>
     {% endfor %}
 {% endblock %}

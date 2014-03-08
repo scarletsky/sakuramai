@@ -10,7 +10,7 @@
     {% for each_day in schedule %}
         <li class="schedule-group clearfix">
             <h4 class="day-title">
-                <a href="{{ each_day.day.day }}/">{{ each_day.day.description }}</a>
+                <a href="/2014/{{ each_day.day.day }}/">{{ each_day.day.description }}</a>
             </h4>
 
             {% for team in each_day.competitors %}
