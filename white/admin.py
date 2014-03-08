@@ -65,6 +65,23 @@ class ScheduleAdmin(admin.ModelAdmin):
         'is_display',
         'year')
 
+
+class VoteDetailAdmin(admin.ModelAdmin):
+    list_display = (
+        'ip_addr',
+        'team_num',
+        'year',
+        'vote_time')
+
+
+class TeamAdmin(admin.ModelAdmin):
+    list_display = (
+        'team_num',
+        'votes',
+        'year')
+
 admin.site.register(Signup2014, Signup2014Admin)
 admin.site.register(Mad, MadAdmin)
 admin.site.register(Schedule, ScheduleAdmin)
+admin.site.register(VoteDetail, VoteDetailAdmin)
+admin.site.register(Team, TeamAdmin)

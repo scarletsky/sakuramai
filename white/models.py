@@ -69,7 +69,7 @@ class Vote2013(models.Model):
     def __unicode__(self):
         return self.ipaddr
 
-# 2014!
+
 class Signup2014(models.Model):
     author = models.CharField(u'名称', max_length=32)
     contact = models.CharField(u'联系方式', max_length=64)
@@ -142,3 +142,28 @@ class Schedule(models.Model):
 
     def __unicode__(self):
         return self.day
+
+
+class VoteDetail(models.Model):
+    ip_addr = models.IPAddressField(u'IP地址')
+    team_num = models.IntegerField(u'组号', default=-1)
+    year = models.SmallIntegerField(u'年份', default=datetime.now().year)
+    vote_time = models.DateTimeField(u'投票时间', auto_now_add=True)
+
+    class Meta:
+        ordering = ['-year', '-id']
+
+    def __unicode__(self):
+        return self.ip_addr
+
+
+class Team(models.Model):
+    team_num = models.IntegerField(u'组号', default=-1)
+    votes = models.IntegerField(u'得票数', default=0)
+    year = models.SmallIntegerField(u'年份', default=datetime.now().year)
+
+    class Meta:
+        ordering = ['-year', '-votes']
+
+    def __unicode__(self):
+        return unicode(self.team_num)

@@ -48,7 +48,7 @@ def custom_500(request):
         return render_to_response(year + '/500.html')
     except:
         return HttpResponse('500')
- 
+
 
 def participants(request, year):
     members_per_year = Signup2014.objects.filter(year=year)
@@ -88,6 +88,7 @@ def schedule(request, year):
     }
     return render_to_response(year + '/schedule.html', ctx)
 
+
 def display(requiest, year, day):
     schedule = Schedule.objects.filter(year=year)
     day_info = schedule.get(day=day, year=year)
@@ -102,7 +103,51 @@ def display(requiest, year, day):
     }
     return render_to_response(year + '/display.html', ctx)
 
-    
+
+@csrf_exempt
+def vote_ajax(request):
+    ip_addr = get_ip_addr(request)
+    team_num = request.POST.get('team_num')
+
+    if check_vote(ip_addr, team_num):
+        return HttpResponse(1)
+    else:
+        new_vote = VoteDetail(ip_addr=ip_addr, team_num=team_num)
+        new_vote.save()
+        add_team_vote(team_num)
+
+    return HttpResponse(0)
+
+
+def get_ip_addr(request):
+    try:
+        x_ip = request.META['HTTP_X_FORWARDED_FOR']
+    except KeyError:
+        ip = request.META['REMOTE_ADDR']
+    else:
+        ip = x_ip.split(",")[0]
+    return ip
+
+
+def check_vote(ip_addr, team_num):
+    obj = VoteDetail.objects.filter(ip_addr=ip_addr, team_num=team_num)
+    is_voted = True if obj else False
+
+    return is_voted
+
+
+def add_team_vote(team_num):
+    try:
+        team = Team.objects.filter(team_num=team_num)[0]
+        team.votes += 1
+        team.save()
+    except:
+        team = Team(team_num=team_num, votes='1')
+        team.save()
+
+    print 'finish'
+
+
 @csrf_exempt
 def check_author(request):
     if request.is_ajax():
@@ -135,7 +180,6 @@ def signup_ajax(request):
         is_team = int(request.POST.get('is_team'))
         if is_team == 0:
             res = check_author(request)
-            print res
 
             if res.content == 'True':
                 return HttpResponse(-1)

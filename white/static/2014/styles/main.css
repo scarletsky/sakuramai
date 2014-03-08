@@ -322,6 +322,7 @@ ul{
     width: 984px;
     height: 324px;
     margin: 50px auto;
+    position: relative;
     background: url('../images/schedule-group-bg.png') no-repeat;
 }
 
@@ -386,6 +387,17 @@ ul{
     line-height: 17px;
     padding: 0 10px;
     color: black;
+}
+
+.schedule-group .vote {
+    width: 18px;
+    height: 44px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -9px;
+    background: url('../images/vote.png') no-repeat;
 }
 
 /* End Schedule Page */

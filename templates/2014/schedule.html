@@ -15,6 +15,8 @@
 
             {% for team in each_day.competitors %}
 
+                <a class="vote js-vote" href="/2014/vote" data-team-num="{{ each_day.day.team1 }}"></a>
+
                 {% for mad in team %}
                     <div class="mad-outer
                                {% if forloop.counter0|divisibleby:2 %} 

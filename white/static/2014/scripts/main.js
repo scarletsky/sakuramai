@@ -58,6 +58,24 @@
   */
 
   $(document).ready(function () {
+    $('.js-vote').click(function (e) {
+      var data = {};
+      var teamNum = $(this).data('team-num');
+
+      data['year'] = 2014;
+      data['team_num'] = teamNum;
+
+
+      $.post('/vote-ajax/', data, function (ret) {
+        if (ret === '1') {
+          alert('你已经投过票了！')
+        } else {
+          alert('感谢参与')
+        }
+      });
+
+      return e.preventDefault();
+    });
 
     /*
     $('#index-cover').click(function () {
