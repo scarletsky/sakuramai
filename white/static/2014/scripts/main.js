@@ -61,17 +61,25 @@
     $('.js-vote').click(function (e) {
       var data = {};
       var teamNum = $(this).data('team-num');
+      var limitDay = $(this).data('vote-limit-day');
 
       data['year'] = 2014;
       data['team_num'] = teamNum;
+      data['vote_limit_day'] = limitDay;
 
 
       $.post('/vote-ajax/', data, function (ret) {
-        if (ret === '1') {
-          alert('你已经投过票了！')
-        } else {
-          alert('感谢参与')
+        switch (ret) {
+        case '1':
+          alert('投票结束');
+          break;
+        case '2':
+          alert('你已经投过票了');
+          break;
+        default:
+          alert('感谢投票')
         }
+
       });
 
       return e.preventDefault();

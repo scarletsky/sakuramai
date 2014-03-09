@@ -108,9 +108,12 @@ def display(requiest, year, day):
 def vote_ajax(request):
     ip_addr = get_ip_addr(request)
     team_num = request.POST.get('team_num')
+    vote_limit_day = request.POST.get('vote_limit_day')
 
-    if check_vote(ip_addr, team_num):
+    if vote_limit_day == '0':
         return HttpResponse(1)
+    elif check_vote(ip_addr, team_num):
+        return HttpResponse(2)
     else:
         new_vote = VoteDetail(ip_addr=ip_addr, team_num=team_num)
         new_vote.save()
@@ -144,8 +147,6 @@ def add_team_vote(team_num):
     except:
         team = Team(team_num=team_num, votes='1')
         team.save()
-
-    print 'finish'
 
 
 @csrf_exempt
