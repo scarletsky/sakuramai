@@ -18,6 +18,8 @@ urlpatterns = patterns(
     url(r'^(?P<year>\d{4})/(?P<day>\d{2}|sp1|sp2|fin)/$', 'display'),
     url(r'^(?P<year>\d{4})/result/$', 'result'),
 
+    url(r'^reduce-day-limit/$', 'reduce_day_limit'),
+
     url(r'^vote-ajax/$', 'vote_ajax'),
     url(r'^signup-ajax/$', 'signup_ajax'),
     url(r'^check-author-ajax/$', 'check_author'),

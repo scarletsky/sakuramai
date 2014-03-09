@@ -149,6 +149,13 @@ def add_team_vote(team_num):
         team.save()
 
 
+def reduce_day_limit(request):
+    days = Schedule.objects.filter(year=2014).exclude(vote_limit_day=0)
+    for day in days:
+        day.vote_limit_day -= 1
+        day.save()
+    return HttpResponse(0)
+
 @csrf_exempt
 def check_author(request):
     if request.is_ajax():
