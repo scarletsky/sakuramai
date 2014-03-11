@@ -2,6 +2,7 @@ body {
     width: 100%;
     height: 100%;
     background: black;
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 
 button {
@@ -320,16 +321,18 @@ ul{
 
 .schedule-group {
     width: 984px;
-    height: 324px;
+    height: 317px;
     margin: 50px auto;
     position: relative;
     background: url('../images/schedule-group-bg.png') no-repeat;
 }
 
 .schedule-group .day-title {
+    height: 30px;
     font-size: 24px;
     line-height: 30px;
-    margin-bottom: 15px;
+    margin-top: 2px;
+    margin-bottom: 22px;
     text-align: center;
     display: block;
 }
@@ -376,8 +379,8 @@ ul{
 
 .schedule-group .mad-outer .mad-title {
     font-size: 18px;
-    line-height: 20px;
-    margin-bottom: 7px;
+    line-height: 18px;
+    margin-bottom: 3px;
     color: white;
     clear: both;
 }

@@ -8,15 +8,18 @@
 {% block main %}
 <ul class="schedule-groups">
     {% for each_day in schedule %}
+        {% for team in each_day.competitors %}
         <li class="schedule-group clearfix">
             <h4 class="day-title">
+                {% if forloop.first %}
                 <a href="/2014/{{ each_day.day.day }}/">{{ each_day.day.description }}</a>
+                {% endif %}
             </h4>
 
-            {% for team in each_day.competitors %}
 
-                <a class="vote js-vote" href="#" data-vote-limit-day="{{ each_day.day.vote_limit_day }}" data-team-num="{{ each_day.day.team1 }}"></a>
-
+            <a class="vote js-vote" href="#" 
+               data-vote-limit-day="{{ each_day.day.vote_limit_day }}"
+               data-team-num="{% if forloop.first %}{{ each_day.day.team1 }}{% else %}{{ each_day.day.team2 }}{% endif %}"></a> 
                 {% for mad in team %}
                     <div class="mad-outer
                                {% if forloop.counter0|divisibleby:2 %} 
@@ -49,8 +52,8 @@
                         </p>
                     </div>
                 {% endfor %}
-            {% endfor %}
         </li>
+        {% endfor %}
     {% endfor %}
 </ul>
 {% endblock %}

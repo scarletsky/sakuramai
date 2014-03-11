@@ -60,8 +60,8 @@
   $(document).ready(function () {
     $('.js-vote').click(function (e) {
       var data = {};
-      var teamNum = $(this).data('team-num');
-      var limitDay = $(this).data('vote-limit-day');
+      var teamNum = $.trim($(this).data('team-num'));
+      var limitDay = $.trim($(this).data('vote-limit-day'));
 
       data['year'] = 2014;
       data['team_num'] = teamNum;
