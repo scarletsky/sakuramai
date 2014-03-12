@@ -466,6 +466,22 @@ ul{
 
 /* End Display Page */
 
+/* Error Page */
+.error-outer {
+    margin: 50px auto;
+}
+
+.error-outer p {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.error-outer .delline {
+    color: #aa1717;
+}
+
+/* End Error Page */
+
 .t-white {
     color: white;
 }
