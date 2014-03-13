@@ -160,7 +160,7 @@ def add_team_vote(team_num):
 
 
 def reduce_day_limit(request):
-    days = Schedule.objects.filter(year=2014).exclude(vote_limit_day=0)
+    days = Schedule.objects.filter(year=2014, is_display=True).exclude(vote_limit_day=0)
     for day in days:
         day.vote_limit_day -= 1
         day.save()
