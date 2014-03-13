@@ -6,6 +6,9 @@
 
 
 {% block main %}
+
+<div id="overlay"></div>
+
 <ul class="schedule-groups">
     {% for each_day in schedule %}
         {% for team in each_day.competitors %}
@@ -33,7 +36,12 @@
                                    {% else %}
                                        pull-right
                                    {% endif %}">
-                            <img src="http://placehold.it/400x500" alt="">
+                            <a class="js-show-video" href="#">
+                                <img src="{{ mad.image }}" alt="">
+                            </a>
+                            <div class="video">
+                                {{ mad.online|safe }}
+                            </div>
                         </div>
 
                         <p class="mad-title

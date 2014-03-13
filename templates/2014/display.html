@@ -6,21 +6,35 @@
 
 
 {% block main %}
+
+    <div id="overlay"></div>
+
     {% for mad in mads %}
     <div class="display-outer clearfix {% if forloop.counter|divisibleby:2%}even{% else %}odd{% endif %}">
 
         <div class="cover-outer">
-            <img src="http://placehold.it/500x300" alt="" class="cover">
+
+            <a class="js-show-video" href="#">
+                <img src="{{ mad.image }}" alt="">
+            </a>
+            <div class="video">
+                {{ mad.online|safe }}
+            </div>
         </div>
 
         <div class="mad-info-outer">
             <div class="mad-info-offset">
                 <p class="mad-info">TITLE: {{ mad.title }}</p>
                 <p class="mad-info">AUTHOR: {{ mad.author }}</p>
-                <p class="mad-info">DOWNLOAD: no</p>
+                <p class="mad-info">DOWNLOAD: 
+                    <a class="mad-download" href="{{ mad.download1 }}">115网盘</a>
+                    {% if mad.download2 %} 
+                        <a class="mad-download" href="{{ mad.download2 }}">百度云</a>
+                    {% endif %}
+                </p>
                 <div>
                     <p class="mad-info">ABOUT:</p>
-                    <p>233</p>
+                    <p>{{ mad.feeling }}</p>
                 </div>
             </div>
         </div>

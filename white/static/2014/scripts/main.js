@@ -58,6 +58,18 @@
   */
 
   $(document).ready(function () {
+    $('.js-show-video').click(function (e) {
+      var field = $(this);
+      field.next().addClass('show');
+      $('#overlay').show();
+    });
+
+    $('#overlay').click(function (e) {
+      var field = $(this);
+      $('div.video.show').removeClass('show');
+      field.hide();
+    });
+
     $('.js-vote').click(function (e) {
       var data = {};
       var teamNum = $.trim($(this).data('team-num'));
