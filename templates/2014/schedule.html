@@ -14,9 +14,7 @@
         {% for team in each_day.competitors %}
         <li class="schedule-group clearfix">
             <h4 class="day-title">
-                {% if forloop.first %}
                 <a href="/2014/{{ each_day.day.day }}/">{{ each_day.day.description }}</a>
-                {% endif %}
             </h4>
 
 
@@ -44,12 +42,12 @@
                             </div>
                         </div>
 
-                        <p class="mad-title
+                        <a class="mad-title
                                  {% if forloop.counter0|divisibleby:2 %} 
                                      t-left 
                                  {% else %}
                                      t-right
-                                 {% endif %}">{{ mad.title }}</p>
+                                 {% endif %}" href="/2014/{{ each_day.day.day }}/">{{ mad.title }}</a>
                         <p class="mad-author
                                  {% if forloop.counter0|divisibleby:2 %} 
                                      t-right 

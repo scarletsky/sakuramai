@@ -27,14 +27,16 @@
                 <p class="mad-info">TITLE: {{ mad.title }}</p>
                 <p class="mad-info">AUTHOR: {{ mad.author }}</p>
                 <p class="mad-info">DOWNLOAD: 
-                    <a class="mad-download" href="{{ mad.download1 }}">115网盘</a>
+                    {% if mad.download1 %} 
+                        <a class="mad-download" href="{{ mad.download1 }}">百度云</a>
+                    {% endif %}
                     {% if mad.download2 %} 
-                        <a class="mad-download" href="{{ mad.download2 }}">百度云</a>
+                        <a class="mad-download" href="{{ mad.download2 }}">115网盘</a>
                     {% endif %}
                 </p>
                 <div>
                     <p class="mad-info">ABOUT:</p>
-                    <p>{{ mad.feeling }}</p>
+                    <p>{{ mad.feeling|linebreaksbr }}</p>
                 </div>
             </div>
         </div>

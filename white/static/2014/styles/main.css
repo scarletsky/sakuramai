@@ -383,6 +383,7 @@ ul{
     margin-bottom: 3px;
     color: white;
     clear: both;
+    display: block;
 }
 
 .schedule-group .mad-outer .mad-author {
@@ -446,11 +447,11 @@ ul{
 
 .display-outer .mad-download {
     color: white;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
-.display-outer .mad-download:hover {
-    text-decoration: none;
+.display-outer .mad-download:first-child {
+    margin-left: 0;
 }
 
 .display-outer .display-outer-bg {

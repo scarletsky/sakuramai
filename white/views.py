@@ -86,12 +86,22 @@ def schedule(request, year):
     ctx = {
         'schedule': schedule
     }
-    return render_to_response(year + '/schedule.html', ctx)
+    if schedule:
+        return render_to_response(year + '/schedule.html', ctx)
+    else:
+        return custom_404(request) 
 
 
-def display(requiest, year, day):
-    schedule = Schedule.objects.filter(year=year)
-    day_info = schedule.get(day=day, year=year)
+def display(request, year, day):
+    try:
+        schedule = Schedule.objects.filter(year=year)
+        day_info = schedule.get(day=day, year=year)
+    
+        if not day_info.is_display:
+            return custom_404(request)
+    except:
+        return custom_404(request)
+
     team1 = day_info.team1
     team2 = day_info.team2
 
