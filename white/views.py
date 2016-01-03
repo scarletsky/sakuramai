@@ -5,10 +5,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from white.models import *
 import re
+from datetime import datetime
 
 
 def index(request):
-    return render_to_response('2014' + '/index.html')
+    return render_to_response('2015' + '/index.html')
 
 
 def year(requrest, year):
@@ -51,7 +52,7 @@ def custom_500(request):
 
 
 def participants(request, year):
-    members_per_year = Signup2014.objects.filter(year=year)
+    members_per_year = Signup.objects.filter(year=year)
     teams = members_per_year.exclude(team_num=-1).order_by('team_num').all()
     pairs = members_per_year.exclude(pair_num_fixed=-1).order_by('pair_num_fixed').all()
     team_group = [teams[i:i+2] for i in range(0, len(teams), 2)]
@@ -96,7 +97,7 @@ def display(request, year, day):
     try:
         schedule = Schedule.objects.filter(year=year)
         day_info = schedule.get(day=day, year=year)
-    
+
         if not day_info.is_display:
             return custom_404(request)
     except:
@@ -109,7 +110,8 @@ def display(request, year, day):
 
     ctx = {
         'mads': mads,
-        'schedule': schedule
+        'schedule': schedule,
+        'day': day_info
     }
     return render_to_response(year + '/display.html', ctx)
 
@@ -170,18 +172,21 @@ def reduce_day_limit(request):
 def check_author(request):
     if request.is_ajax():
         typeMap = request.POST.get('type')
+        year = datetime.now().year
         if typeMap == 'single':
-            obj = Signup2014.objects.filter(author=request.POST.get('author1'))
+            obj = Signup.objects.filter(author=request.POST.get('author1'), year=year)
 
             isSigned = True if obj else False
             return HttpResponse(isSigned)
 
         elif typeMap == 'team':
-            obj1 = Signup2014.objects.filter(
-                author=request.POST.get('author1')
+            obj1 = Signup.objects.filter(
+                author=request.POST.get('author1'),
+                year=year
             )
-            obj2 = Signup2014.objects.filter(
-                author=request.POST.get('author2')
+            obj2 = Signup.objects.filter(
+                author=request.POST.get('author2'),
+                year=year
             )
 
             isSigned = True if obj1 or obj2 else False
@@ -208,7 +213,7 @@ def signup_ajax(request):
                 pairNum = request.POST.get('pair-num')
 
                 try:
-                    member1 = Signup2014(
+                    member1 = Signup(
                         author=author1,
                         contact=contact1,
                         remark=remark1,
@@ -239,25 +244,25 @@ def signup_ajax(request):
                 # if you delete one team,
                 # team_num will not be correct.
                 # team_num = (len(
-                #     Signup2014.objects.filter(is_team=1)) / 2) + 1
+                #     Signup.objects.filter(is_team=1)) / 2) + 1
 
                 # Use this instead!
 
                 # Because the team_num field is CharField,
                 # So it can not use order_by('-team_num')
                 # Just use pub_time instead.....
-                team_list = Signup2014.objects.filter(is_team=1).order_by('-pub_time')
+                team_list = Signup.objects.filter(is_team=1).order_by('-pub_time')
                 team_num = (int(team_list[0].team_num) + 1) if len(team_list) != 0 else 1
 
                 try:
-                    member1 = Signup2014(
+                    member1 = Signup(
                         author=author1,
                         contact=contact1,
                         remark=remark1,
                         is_team=is_team,
                         team_num=team_num
                     )
-                    member2 = Signup2014(
+                    member2 = Signup(
                         author=author2,
                         contact=contact2,
                         remark=remark2,

@@ -1,0 +1,277 @@
+{% extends '2015/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+<title>报名跪地板</title>
+{% endblock %}
+
+{% block main %}
+<div id="signup">
+    <div class="guide">
+        <a>报名细则</a>
+        <div class="line"></div>
+        <a data-toggle="modal" data-target="#forHotfloor">组队报名</a>
+        <div class="line"></div>
+        <a data-toggle="modal" data-target="#forHotfloor">单人报名</a>
+        <div class="line"></div>
+        <a data-toggle="modal" data-target="#forHotfloor">报名入口</a>
+    </div>
+
+    <div class="content">
+        <section>
+            <h4>组队参赛</h4>
+            <p>请填写组队双方的ID，双方的联系方式，以及以往作品链接。</p>
+        </section>
+
+        <section>
+            <h4>单人参赛</h4>
+            <p>请填写ID，编号（注：0~9），联系方式，以及以往作品链接。</p>
+        </section>
+
+        <section>
+            <h4>报名截止日期</h4>
+            <p>2015年2月1日 20:00。</p>
+        </section>
+
+        <section>
+            <h4>作品截稿日期</h4>
+            <p>2015年3月10日。</p>
+        </section>
+
+        <a data-toggle="modal" data-target="#forHotfloor">
+            <div id="signup-entrance"></div>
+        </a>
+    </div>
+</div>
+
+<!-- <div id="signupExpire" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myqueen" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">迎接你的凄惨结局吧！ </h4>
+            </div>
+
+            <div class="modal-body">
+                <img class="center mgB20" src="{% static '2014/images/lich-queen.jpg' %}" alt="">
+                <p>来吧，我已经基渴难耐了。</p>
+                <p>你们的默默牺牲会得到我的褒奖。</p>
+                <p>亲眼目睹吧，我会把他们都变成基佬。</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Lich Queen饶命</button>
+                <a class="btn btn-danger" href="/2014/participants/">围观基佬团</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+ -->
+
+<div id="forHotfloor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myQueen" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">报名跪地板已结束，请明年再跪</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="clearfix">
+                    <ol>
+                        <li>又一天过去了。今天过得怎么样，梦想是不是更远了？</li>
+                        <li>只要是石头，到哪里都不会发光的。</li>
+                        <li>真正努力过的人，就会明白天赋的重要。</li>
+                        <li>好多重要又紧迫的事情，先干哪一件都会感觉别的事情被耽误了。所以还是先上会儿网吧。</li>
+                        <li>我追逐自己的梦想，别人说我幼稚可笑，但我坚持了下来。最后发现，原来还真是我以前幼稚可笑。</li>
+                        <li>回首青春，我发现自己失去了很多宝贵的东西。但我并不难过，因为我知道，以后会失去的更多。</li>
+                        <li>女生们宁肯做高帅富的备胎，也不肯接受屌丝的行为，从基因上保证了人类的进步。</li>
+                        <li>热地板研究表明：难看和没钱的男人，并不比高帅富更加靠谱。</li>
+                        <li>人生就是这样，有欢笑也有泪水。一部分人主要负责欢笑，另一部分人主要负责泪水。</li>
+                        <li>假如今天生活欺骗了你，不要悲伤，不要哭泣，因为明天生活还会继续欺骗你。</li>
+                    </ol>
+                    <h4 class="pull-right">By 热地板</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <!-- <button class="btn btn-primary" id="signup-single-btn">孤独的跪地板</button> -->
+                    <!-- <button class="btn btn-danger" id="signup-team-btn">和机油一起跪地板</button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="singleForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="single" class="form-horizontal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="hehe">孤独的跪地板</h4>
+                </div>
+
+                <div class="modal-body">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="author1">用户名</label>
+                        <div class="col-sm-6">
+                            <input class="author form-control" type="text" id="author1" name="author1" placeholder="hotfloor" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="contact1">联系方式</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="contact1" name="contact1" placeholder="hotfloor@qq.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="remark1">备注</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="remark1" name="remark1" placeholder="报名送热地板果照" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="pair-num">配对号</label>
+                        <div class="col-sm-6">
+                            <input class="pair-num form-control" type="text" id="pair-num" name="pair-num" placeholder="热地板规定要填0~9" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input class="is_team form-control" type="hidden" id="is_team" name="is_team" value="0" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id="single" class="btn btn-primary">跪下</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">不跪</button>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+
+<div id="teamForm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="team" class="form-horizontal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="hehe">和机油一起跪地板</h4>
+                </div>
+
+                <div class="modal-body">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="author1">用户名</label>
+                        <div class="col-sm-6">
+                            <input class="author form-control" type="text" id="author1" name="author1" placeholder="hotfloor" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="contact1">联系方式</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="contact1" name="contact1" placeholder="hotfloor1@qq.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="remark1">备注</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="remark1" name="remark1" placeholder="报名送热地板电话号码" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="author2">用户名</label>
+                        <div class="col-sm-6">
+                            <input class="author form-control" type="text" id="author2" name="author2" placeholder="hotfloor2" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="contact2">联系方式</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="contact2" name="contact2" placeholder="hotfloor2@qq.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="remark2">备注</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="remark2" name="remark2" placeholder="前提是你有钱" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input class="is_team form-control" type="hidden" id="is_team" name="is_team" value="1" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id="team" class="btn btn-primary">一起跪</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">分手吧</button>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+<div id="formSuccess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">报名成功</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="clearfix">
+                    <p>你全力做到的最好，可能还不如别人随便搞搞。</p>
+                    <h4 class="pull-right">By 热地板</h4>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div id="formFailure" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hehe" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myQueen">报名失败</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="clearfix">
+                    <p>Loser面对生活比自己好的人，心中生出了怨恨。</p>
+                    <h4 class="pull-right">By 热地板</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

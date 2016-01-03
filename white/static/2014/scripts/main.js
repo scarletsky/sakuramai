@@ -62,12 +62,16 @@
       var field = $(this);
       field.next().addClass('show');
       $('#overlay').show();
+
+      return e.preventDefault();
     });
 
     $('#overlay').click(function (e) {
       var field = $(this);
       $('div.video.show').removeClass('show');
       field.hide();
+
+      return e.preventDefault();
     });
 
     $('.js-vote').click(function (e) {

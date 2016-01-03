@@ -2,7 +2,7 @@ from django.contrib import admin
 from white.models import *
 
 
-class Signup2014Admin(admin.ModelAdmin):
+class SignupAdmin(admin.ModelAdmin):
     list_filter = ('year',)
     list_display = (
         'author',
@@ -80,7 +80,7 @@ class TeamAdmin(admin.ModelAdmin):
         'votes',
         'year')
 
-admin.site.register(Signup2014, Signup2014Admin)
+admin.site.register(Signup, SignupAdmin)
 admin.site.register(Mad, MadAdmin)
 admin.site.register(Schedule, ScheduleAdmin)
 admin.site.register(VoteDetail, VoteDetailAdmin)

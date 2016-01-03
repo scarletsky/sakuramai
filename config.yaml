@@ -16,5 +16,12 @@ handlers:
 - url: /favicon2014.ico
   static_path: favicon2014.ico
 
+- url: /favicon2015.ico
+  static_path: favicon2015.ico
+
 - url: /static/
   gzip: on
+
+cron:
+- url: /reduce-day-limit/
+  schedule: "30 19 * * *"

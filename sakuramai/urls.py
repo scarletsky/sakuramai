@@ -15,7 +15,7 @@ urlpatterns = patterns(
     url(r'^(?P<year>\d{4})/signup/$', 'signup'),
     url(r'^(?P<year>\d{4})/participants/$', 'participants'),
     url(r'^(?P<year>\d{4})/schedule/$', 'schedule'),
-    url(r'^(?P<year>\d{4})/(?P<day>\d{2}|sp1|sp2|fin)/$', 'display'),
+    url(r'^(?P<year>\d{4})/(?P<day>\d{2}|sp1|sp2|fin|ED)/$', 'display'),
     url(r'^(?P<year>\d{4})/result/$', 'result'),
 
     url(r'^reduce-day-limit/$', 'reduce_day_limit'),

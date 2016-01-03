@@ -18,6 +18,7 @@ local.properties
 
 static/
 white/migrations
+site-packages/
 *.pyc
 
 # External tool builders

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SKM第七届跪地板大会</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static '2015/styles/normalize.css' %}">
+        <link rel="stylesheet" href="{% static '2015/styles/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static '2015/styles/main.css' %}">
+        <script src="{% static '2015/scripts/jquery-1.10.2.js' %}"></script>
+        <script src="{% static '2015/scripts/bootstrap.min.js' %}"></script>
+        <script src="{% static '2015/scripts/main.js' %}"></script>
+
+        <link rel="shortcut icon" href="/favicon2015.ico?20150115">
+    </head>
+
+    <body class="burst">
+        <div id="hotfloor-x">
+            <div id="logo-ev"></div>
+
+            <div class="nav">
+                <a class="info" href="/2015/info/"></a>
+                <a class="signup" href="/2015/signup/"></a>
+                <a class="watch" href="/2015/schedule/"></a>
+                <a class="prev" href="/2014/"></a>
+            </div>
+
+            {% block main %}{% endblock %}
+
+            <div class="footer">
+                <div class="logo-skm"></div>
+                <p>Copyright © 2008-2015 SakuraMaiMad Studio</p>
+            </div>
+        </div>
+    </body>
+</html>

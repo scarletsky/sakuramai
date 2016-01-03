@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}{% endblock %}
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static '2015/styles/normalize.css' %}">
+        <link rel="stylesheet" href="{% static '2015/styles/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static '2015/styles/main.css' %}">
+        <script src="{% static '2015/scripts/jquery-1.10.2.js' %}"></script>
+        <script src="{% static '2015/scripts/bootstrap.min.js' %}"></script>
+        <script src="{% static '2015/scripts/main.js' %}"></script>
+
+        <link rel="shortcut icon" href="/favicon2015.ico?20150115">
+    </head>
+
+    <body>
+        <div id="hotfloor">
+            <div id="background-wave"></div>
+            <div id="background-gradient"></div>
+
+            <div id="header">
+                <a href="/2015/">
+                    <div class="logo-ev-x"></div>
+                </a>
+
+                <div class="nav">
+                    <a class="info" href="/2015/info/"></a>
+                    <a class="signup" href="/2015/signup/"></a>
+                    <a class="watch" href="/2015/schedule/"></a>
+                    <a class="prev" href="/2014/"></a>
+                </div>
+            </div>
+
+            <div id="container">
+                {% block main %}{% endblock %}
+            </div>
+
+            <div class="footer">
+                <div class="logo-skm"></div>
+                <p>Copyright © 2008-2015 SakuraMaiMad Studio</p>
+            </div>
+
+        </div>
+    </body>
+</html>
