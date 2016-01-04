@@ -16,7 +16,7 @@ local.properties
 .settings/
 .loadpath
 
-static/
+/static/
 white/migrations
 site-packages/
 *.pyc
