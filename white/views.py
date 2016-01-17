@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 def index(request):
-    return render_to_response('2015' + '/index.html')
+    return render_to_response('2016' + '/index.html')
 
 
 def year(requrest, year):
@@ -90,7 +90,7 @@ def schedule(request, year):
     if schedule:
         return render_to_response(year + '/schedule.html', ctx)
     else:
-        return custom_404(request) 
+        return custom_404(request)
 
 
 def display(request, year, day):

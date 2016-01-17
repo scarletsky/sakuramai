@@ -1,0 +1,7 @@
+#logo-skm {
+    width: 206px;
+    height: 88px;
+    background-image: url('../images/logo-skm.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
