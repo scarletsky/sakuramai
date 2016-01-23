@@ -278,4 +278,9 @@ html, body {
     text-decoration: none;
 }
 
+#single-link, #team-link {
+    color: black;
+    outline: none;
+}
+
 /* Info Page */

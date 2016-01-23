@@ -1,17 +1,25 @@
 {% extends '2016/base.html' %}
 
 {% block title %}
-<title>庆祝热地板有男盆友！</title>
+<title>庆祝热地板准备结婚！</title>
 {% endblock %}
 
 {% block main %}
 
 <div id="signup-container">
     <ul class="links-container">
-        <li class="links">报名细则</li>
-        <li class="links">组队报名</li>
-        <li class="links">单人报名</li>
-        <li class="links">报名入口</li>
+        <li class="links">
+            报名细则
+        </li>
+        <li class="links">
+            <a href="#" id="single-link">单人报名</a>
+        </li>
+        <li class="links">
+            <a href="#" id="team-link">组队报名</a>
+        </li>
+        <li class="links">
+            报名入口
+        </li>
     </ul>
 
     <div class="main">
@@ -66,5 +74,92 @@
     </div>
 
 </div>
+
+<div class="ui modal" id="single-form">
+    <i class="close icon"></i>
+    <div class="header">
+        Single dog, single dog, single all the day
+    </div>
+    <div class="content ui form">
+        <div class="field">
+            <label>用户名</label>
+            <input type="text" name="author1" id="author1" placeholder="hotfloor">
+        </div>
+        <div class="field">
+            <label>联系方式</label>
+            <input type="text" name="contact1" id="contact1" placeholder="hotfloor@qq.com">
+        </div>
+        <div class="field">
+            <label>备注</label>
+            <input type="text" name="remark1" id="remark1" placeholder="报名后可以找热地板要红包">
+        </div>
+        <div class="field">
+            <label>配对号</label>
+            <input type="text" name="pair-num" id="pair-num" placeholder="热地板规定填0~9">
+        </div>
+        <div class="field">
+            <input type="hidden" name="is_team" id="is_team" value="0">
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui button dismiss">Cancel</div>
+        <div class="ui button" id="signle-submit">OK</div>
+    </div>
+</div>
+
+<div class="ui modal" id="team-form">
+    <i class="close icon"></i>
+    <div class="header">
+        秀恩爱，分的快，你们怎么就不懂？
+    </div>
+    <div class="content ui form">
+        <!-- 1 -->
+        <div class="field">
+            <label>用户名</label>
+            <input type="text" name="author1" id="author1" placeholder="hotfloor">
+        </div>
+        <div class="field">
+            <label>联系方式</label>
+            <input type="text" name="contact1" id="contact1" placeholder="hotfloor@qq.com">
+        </div>
+        <div class="field">
+            <label>备注</label>
+            <input type="text" name="remark1" id="remark1" placeholder="没爱了，友尽了，可以分了">
+        </div>
+
+        <!-- 2 -->
+        <div class="field">
+            <label>用户名</label>
+            <input type="text" name="author2" id="author2" placeholder="hotfloor's boyfriend">
+        </div>
+        <div class="field">
+            <label>联系方式</label>
+            <input type="text" name="contact2" id="contact2" placeholder="hotfloor_bf@qq.com">
+        </div>
+        <div class="field">
+            <label>备注</label>
+            <input type="text" name="remark2" id="remark2" placeholder="多照照镜子，很多事情你就明白原因了">
+            </div>
+
+        <div class="field">
+            <input type="hidden" name="is_team" id="is_team" value="1">
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui button dismiss">Cancel</div>
+        <div class="ui button" id="team-submit">OK</div>
+    </div>
+</div>
+
+<div class="ui basic modal" id="form-success">
+    <div class="ui icon header">
+        <i class="archive icon"></i>
+        报名成功
+    </div>
+    <div class="ui content center aligned segment">
+        你这么努力，忍受那么多寂寞和纠结，我们也没觉得你有多优秀。
+    </div>
+</div>
+
 
 {% endblock %}
