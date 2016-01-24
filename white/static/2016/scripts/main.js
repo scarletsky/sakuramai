@@ -62,29 +62,7 @@
 
     $(document).ready(function() {
 
-        $('[data-dna]').mouseover(function(e) {
-            var $elem = $(this);
-            var dna = $elem.data('dna');
-            $('#dna').attr('class', 'p' + dna);
-        });
-
-        $('#single-form #author1').blur(function(e) {
-            e.preventDefault();
-            checkAuthor($('#single-form #author1'), 'single');
-        });
-
-        $('#team-form #author1, #team-form #author2').blur(function(e) {
-            e.preventDefault();
-            checkAuthor($('#team-form #author1, #team-form #author2'), 'team');
-        });
-
-        $('#click-me-to-signup').click(function(e) {
-            e.preventDefault();
-            $('#signup-entry.ui.modal').modal('show');
-        });
-
-        $('#single-link').click(function(e) {
-            e.preventDefault();
+        var initSingleForm = function() {
             $('#single-form.modal')
                 .modal({
                     onApprove: function($elem) {
@@ -94,7 +72,7 @@
                             $('#single-form .ui.dimmer')
                                 .dimmer({
                                     onShow: function() {
-                                        $('#dimmer-title').text('热地板说不能有空字段');
+                                        $('#single-form #dimmer-title').text('热地板说不能有空字段');
                                     }
                                 })
                                 .dimmer('show');
@@ -136,11 +114,10 @@
                     }
                 })
                 .modal('show');
-        });
+        }
 
-        $('#team-link').click(function(e) {
-            e.preventDefault();
-            $('#team-form.modal')
+        var initTeamForm = function() {
+             $('#team-form.modal')
                 .modal({
                     onApprove: function($elem) {
                         var fields = $('#team-form input');
@@ -180,6 +157,42 @@
                     }
                 })
                 .modal('show');
+        }
+
+        $('[data-dna]').mouseover(function(e) {
+            var $elem = $(this);
+            var dna = $elem.data('dna');
+            $('#dna').attr('class', 'p' + dna);
+        });
+
+        $('#single-form #author1').blur(function(e) {
+            e.preventDefault();
+            checkAuthor($('#single-form #author1'), 'single');
+        });
+
+        $('#team-form #author1, #team-form #author2').blur(function(e) {
+            e.preventDefault();
+            checkAuthor($('#team-form #author1, #team-form #author2'), 'team');
+        });
+
+        $('#click-me-to-signup').click(function(e) {
+            e.preventDefault();
+            $('#signup-entry.ui.modal')
+                .modal({
+                    onApprove: function() {initSingleForm();},
+                    onDeny: function() {initTeamForm();}
+                })
+                .modal('show');
+        });
+
+        $('#single-link').click(function(e) {
+            e.preventDefault();
+            initSingleForm();
+        });
+
+        $('#team-link').click(function(e) {
+            e.preventDefault();
+            initTeamForm();
         });
 
     });
