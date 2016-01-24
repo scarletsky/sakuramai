@@ -243,6 +243,7 @@ html, body {
 .info-title .right {
     min-width: 80px;
     display: inline-block;
+    line-height: 30px;
     border-bottom-width: 5px;
     border-bottom-style: solid;
 }
@@ -280,7 +281,7 @@ html, body {
 }
 
 #single-link, #team-link {
-    color: black;
+    color: rgba(0, 0, 0, .87);
     outline: none;
 }
 
