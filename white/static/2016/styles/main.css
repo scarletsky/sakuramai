@@ -271,6 +271,7 @@ html, body {
     font-weight: bold;
     text-decoration: none;
     color: #c1272d;
+    outline: 0;
 }
 
 #click-me-to-signup:hover {

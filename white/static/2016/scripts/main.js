@@ -11,20 +11,23 @@ $(document).ready(function() {
   $('#form-success.modal')
     .modal('attach events', '#team-form.modal #team-submit.button');
 
+  $('#form-fail.modal')
+    .modal('attach events', '#single-form.modal #single-submit.button');
+
   $('#click-me-to-signup').click(function(e) {
     e.preventDefault();
     $('#team-form.modal').modal('show');
   });
 
-  // $('#single-link').click(function(e) {
-  //   e.preventDefault();
-  //   $('#single-form').modal('show');
-  // });
+  $('#single-link').click(function(e) {
+    e.preventDefault();
+    $('#single-form.modal').modal('show');
+  });
 
-  // $('#team-link').click(function(e) {
-  //   e.preventDefault();
-  //   $('#team-form').modal('show');
-  // });
+  $('#team-link').click(function(e) {
+    e.preventDefault();
+    $('#team-form.modal').modal('show');
+  });
 
 });
 } (jQuery));
