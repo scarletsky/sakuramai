@@ -80,7 +80,7 @@
 
         $('#click-me-to-signup').click(function(e) {
             e.preventDefault();
-            $('#team-form.modal').modal('show');
+            $('#signup-entry.ui.modal').modal('show');
         });
 
         $('#single-link').click(function(e) {
