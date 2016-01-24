@@ -7,4 +7,12 @@ Designed by hotfloor
 
 ## Usage
 
-`$ pip install -r requirements.txt`
+1. `$ pip install -r requirements.txt`
+
+2. Edit `sakuramai/settings.py`, fill the following fields:
+    - `MYSQL_DB`
+    - `MYSQL_USER`
+    - `MYSQL-PASS`
+    - `SECRET_KEY`
+
+3. Run server.
