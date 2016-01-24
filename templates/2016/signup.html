@@ -76,6 +76,15 @@
 </div>
 
 <div class="ui modal" id="single-form">
+
+    <div class="ui dimmer">
+        <div class="content">
+            <div class="center">
+                <h2 class="ui inverted header" id="dimmer-title">Title</h2>
+            </div>
+        </div>
+    </div>
+
     <div class="header">
         Single dog, single dog, single all the day
     </div>
@@ -101,12 +110,21 @@
         </div>
     </div>
     <div class="actions">
-        <div class="ui button dismiss">Cancel</div>
-        <div class="ui button" id="single-submit">OK</div>
+        <div class="ui button cancel red">Cancel</div>
+        <div class="ui button ok green" id="single-submit">OK</div>
     </div>
 </div>
 
 <div class="ui modal" id="team-form">
+
+    <div class="ui dimmer">
+        <div class="content">
+            <div class="center">
+                <h2 class="ui inverted header" id="dimmer-title">Title</h2>
+            </div>
+        </div>
+    </div>
+
     <div class="header">
         秀恩爱，分的快，你们怎么就不懂？
     </div>
@@ -144,8 +162,8 @@
         </div>
     </div>
     <div class="actions">
-        <div class="ui button dismiss">Cancel</div>
-        <div class="ui button" id="team-submit">OK</div>
+        <div class="ui button cancel red">Cancel</div>
+        <div class="ui button ok green" id="team-submit">OK</div>
     </div>
 </div>
 
@@ -168,6 +186,17 @@
         你还想做单身狗吗？快去找热地板要脱团攻略吧！
     </div>
 </div>
+
+<div class="ui basic modal" id="error">
+    <div class="ui icon header">
+        <i class="remove icon"></i>
+        服务器发生故障
+    </div>
+    <div class="ui content center aligned segment">
+        尝尝热地板的愤怒吧！秀恩爱瞎你们的狗眼！
+    </div>
+</div>
+
 
 
 {% endblock %}

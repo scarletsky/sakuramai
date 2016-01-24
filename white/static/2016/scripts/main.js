@@ -1,5 +1,65 @@
 (function($) {
 
+    var checkInput = function(fields) {
+        var input;
+        var len = fields.length;
+        for (var i = 0; i < len; i++) {
+            input = fields.eq(i).val();
+            if (!input || !$.trim(input)) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    var checkAuthor = function(fields, type) {
+        var data = {};
+        if (type === 'single') {
+            data.author1 = $.trim(fields.val());
+            data.type = 'single';
+        } else if (type === 'team') {
+            data.author1 = $.trim(fields.eq(0).val());
+            data.author2 = $.trim(fields.eq(1).val());
+            data.type = 'team';
+        }
+
+        $.post('/check-author-ajax/', data, function(isSigned) {
+            if (isSigned == 'True') {
+                var formSelector = '#' + type + '-form';
+                $(formSelector + ' .ui.dimmer')
+                    .dimmer({
+                        onShow: function() {
+                            $(formSelector + ' #dimmer-title').text('热地板说你（们）已经报过名了！');
+                        }
+                    })
+                    .dimmer('show');
+            }
+        });
+    };
+
+    var checkNum = function(field) {
+        var pairNum = Number(field.val());
+        var re = /^[0-9]{1}$/;
+        if (re.test(pairNum) === false) {
+            return false;
+        }
+        return true;
+    };
+
+    var getData = function(fields, type) {
+        var name, val;
+        var data = {
+            type: type
+        };
+        fields.each(function() {
+            name = $(this).attr('name');
+            val = $.trim($(this).val());
+            data[name] = val;
+        });
+
+        return data;
+    };
+
     $(document).ready(function() {
 
         $('[data-dna]').mouseover(function(e) {
@@ -8,11 +68,15 @@
             $('#dna').attr('class', 'p' + dna);
         });
 
-        $('#form-success.modal')
-            .modal('attach events', '#team-form.modal #team-submit.button');
+        $('#single-form #author1').blur(function(e) {
+            e.preventDefault();
+            checkAuthor($('#single-form #author1'), 'single');
+        });
 
-        $('#form-fail.modal')
-            .modal('attach events', '#single-form.modal #single-submit.button');
+        $('#team-form #author1, #team-form #author2').blur(function(e) {
+            e.preventDefault();
+            checkAuthor($('#team-form #author1, #team-form #author2'), 'team');
+        });
 
         $('#click-me-to-signup').click(function(e) {
             e.preventDefault();
@@ -21,12 +85,101 @@
 
         $('#single-link').click(function(e) {
             e.preventDefault();
-            $('#single-form.modal').modal('show');
+            $('#single-form.modal')
+                .modal({
+                    onApprove: function($elem) {
+                        var fields = $('#single-form input');
+
+                        if (!checkInput(fields)) {
+                            $('#single-form .ui.dimmer')
+                                .dimmer({
+                                    onShow: function() {
+                                        $('#dimmer-title').text('热地板说不能有空字段');
+                                    }
+                                })
+                                .dimmer('show');
+                            return false;
+                        }
+
+                        if (!checkNum($('#pair-num'))) {
+                            $('#single-form .ui.dimmer')
+                                .dimmer({
+                                    onShow: function() {
+                                        $('#single-form #dimmer-title').text('热地板规定配对号要填0~9');
+                                    }
+                                })
+                                .dimmer('show');
+                            return false;
+                        }
+
+                        $('#single-form .form').addClass('loading');
+                        $elem.addClass('loading');
+
+                        var data = getData(fields, 'single');
+
+                        $.post('/signup-ajax/', data)
+                         .then(function(res) {
+                            if (res == '1') {
+                                $('#form-success.modal').modal('show');
+                            } else {
+                                $('#form-fail.modal').modal('show');
+                            }
+
+                            $('#single-form .form').removeClass('loading');
+                            $elem.removeClass('loading');
+                            $('input:not([type="hidden"])').val('');
+                        }, function(err) {
+                            $('#single-form .form').removeClass('loading');
+                            $elem.removeClass('loading');
+                            $('#error').modal('show');
+                        });
+                    }
+                })
+                .modal('show');
         });
 
         $('#team-link').click(function(e) {
             e.preventDefault();
-            $('#team-form.modal').modal('show');
+            $('#team-form.modal')
+                .modal({
+                        onApprove: function($elem) {
+                            var fields = $('#team-form input');
+
+                            if (!checkInput(fields)) {
+                                $('#team-form .ui.dimmer')
+                                    .dimmer({
+                                        onShow: function() {
+                                            $('#team-form #dimmer-title').text('热地板说不能有空字段');
+                                        }
+                                    })
+                                    .dimmer('show');
+                                return false;
+                            }
+
+                            $('#team-form .form').addClass('loading');
+                            $elem.addClass('loading');
+
+                            var data = getData(fields, 'team');
+
+                            $.post('/signup-ajax/', data)
+                             .then(function(res) {
+                                if (res == '1') {
+                                    $('#form-success.modal').modal('show');
+                                } else {
+                                    $('#form-fail.modal').modal('show');
+                                }
+
+                                $('#team-form .form').removeClass('loading');
+                                $elem.removeClass('loading');
+                                $('input:not([type="hidden"])').val('');
+                            }, function(err) {
+                                $('#team-form .form').removeClass('loading');
+                                $elem.removeClass('loading');
+                                $('#error').modal('show');
+                            });
+                        }
+                    })
+                    .modal('show');
         });
 
     });
