@@ -280,7 +280,7 @@ html, body {
     text-decoration: none;
 }
 
-#single-link, #team-link {
+#single-link, #team-link, #signup-link {
     color: rgba(0, 0, 0, .87);
     outline: none;
 }

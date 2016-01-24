@@ -175,7 +175,7 @@
             checkAuthor($('#team-form #author1, #team-form #author2'), 'team');
         });
 
-        $('#click-me-to-signup').click(function(e) {
+        $('#click-me-to-signup, #signup-link').click(function(e) {
             e.preventDefault();
             $('#signup-entry.ui.modal')
                 .modal({
