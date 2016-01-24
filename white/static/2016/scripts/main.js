@@ -142,44 +142,44 @@
             e.preventDefault();
             $('#team-form.modal')
                 .modal({
-                        onApprove: function($elem) {
-                            var fields = $('#team-form input');
+                    onApprove: function($elem) {
+                        var fields = $('#team-form input');
 
-                            if (!checkInput(fields)) {
-                                $('#team-form .ui.dimmer')
-                                    .dimmer({
-                                        onShow: function() {
-                                            $('#team-form #dimmer-title').text('热地板说不能有空字段');
-                                        }
-                                    })
-                                    .dimmer('show');
-                                return false;
+                        if (!checkInput(fields)) {
+                            $('#team-form .ui.dimmer')
+                                .dimmer({
+                                    onShow: function() {
+                                        $('#team-form #dimmer-title').text('热地板说不能有空字段');
+                                    }
+                                })
+                                .dimmer('show');
+                            return false;
+                        }
+
+                        $('#team-form .form').addClass('loading');
+                        $elem.addClass('loading');
+
+                        var data = getData(fields, 'team');
+
+                        $.post('/signup-ajax/', data)
+                         .then(function(res) {
+                            if (res == '1') {
+                                $('#form-success.modal').modal('show');
+                            } else {
+                                $('#form-fail.modal').modal('show');
                             }
 
-                            $('#team-form .form').addClass('loading');
-                            $elem.addClass('loading');
-
-                            var data = getData(fields, 'team');
-
-                            $.post('/signup-ajax/', data)
-                             .then(function(res) {
-                                if (res == '1') {
-                                    $('#form-success.modal').modal('show');
-                                } else {
-                                    $('#form-fail.modal').modal('show');
-                                }
-
-                                $('#team-form .form').removeClass('loading');
-                                $elem.removeClass('loading');
-                                $('input:not([type="hidden"])').val('');
-                            }, function(err) {
-                                $('#team-form .form').removeClass('loading');
-                                $elem.removeClass('loading');
-                                $('#error').modal('show');
-                            });
-                        }
-                    })
-                    .modal('show');
+                            $('#team-form .form').removeClass('loading');
+                            $elem.removeClass('loading');
+                            $('input:not([type="hidden"])').val('');
+                        }, function(err) {
+                            $('#team-form .form').removeClass('loading');
+                            $elem.removeClass('loading');
+                            $('#error').modal('show');
+                        });
+                    }
+                })
+                .modal('show');
         });
 
     });
