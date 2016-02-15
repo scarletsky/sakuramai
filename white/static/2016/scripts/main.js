@@ -159,6 +159,10 @@
                 .modal('show');
         }
 
+        var initSignupEndModal = function () {
+            $('#signup-end').modal('show');
+        };
+
         $('[data-dna]').mouseover(function(e) {
             var $elem = $(this);
             var dna = $elem.data('dna');
@@ -177,22 +181,25 @@
 
         $('#click-me-to-signup, #signup-link').click(function(e) {
             e.preventDefault();
-            $('#signup-entry.ui.modal')
-                .modal({
-                    onApprove: function() {initSingleForm();},
-                    onDeny: function() {initTeamForm();}
-                })
-                .modal('show');
+            initSignupEndModal();
+            // $('#signup-entry.ui.modal')
+            //     .modal({
+            //         onApprove: function() {initSingleForm();},
+            //         onDeny: function() {initTeamForm();}
+            //     })
+            //     .modal('show');
         });
 
         $('#single-link').click(function(e) {
             e.preventDefault();
-            initSingleForm();
+            initSignupEndModal();
+            // initSingleForm();
         });
 
         $('#team-link').click(function(e) {
             e.preventDefault();
-            initTeamForm();
+            initSignupEndModal();
+            // initTeamForm();
         });
 
     });
