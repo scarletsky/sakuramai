@@ -286,6 +286,17 @@ html, body {
 }
 
 /* Schedule Page */
+#overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.87);
+    z-index: 9998;
+    display: none;
+}
+
 .schedule-groups {
     width: 1000px;
     height: auto;
@@ -354,6 +365,24 @@ html, body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.video {
+    width: 960px;
+    height: 540px;
+    position: fixed;
+    margin: auto;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
+
+.video.show {
+    display: block;
+    z-index: 9999;
 }
 
 .mad-title {
@@ -442,5 +471,4 @@ html, body {
 
 .d-mad-text {
     color: #2d2d2d;
-
 }

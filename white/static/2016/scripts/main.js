@@ -62,6 +62,21 @@
 
     $(document).ready(function() {
 
+        $('.cover-outer').click(function (e) {
+          var video = $(this).children('.video');
+          video.addClass('show');
+          $('#overlay').show();
+
+          return e.preventDefault();
+        });
+
+        $('#overlay').click(function (e) {
+            $('.video.show').removeClass('show');
+            $(this).hide();
+
+            return e.preventDefault();
+        });
+
         var initSingleForm = function() {
             $('#single-form.modal')
                 .modal({
