@@ -1,0 +1,81 @@
+{% extends '2016/base.html' %}
+
+{% block title %}
+<title>热地板要派红包拉！</title>
+{% endblock %}
+
+
+{% block main %}
+
+<div id="overlay"></div>
+
+<ul class="schedule-groups">
+    {% for each_day in schedule %}
+        {% for team in each_day.competitors %}
+        <li class="schedule-group clearfix">
+
+            {% if forloop.first %}
+            <div class="flex-outer">
+                <div class="mad-outer day-title-left"></div>
+                <h4 class="day-title">
+                    <a href="/2016/{{ each_day.day.day }}/">{{ each_day.day.description }}</a>
+                </h4>
+                <div class="mad-outer day-title-right"></div>
+            </div>
+            {% endif %}
+
+            <div class="flex-outer">
+
+                {% for mad in team %}
+                <div class="mad-outer
+                           {% if forloop.counter0|divisibleby:2 %}
+                               left
+                           {% else %}
+                               right
+                           {% endif %}">
+                    <div class="cover-outer" style="background-image: url({{ mad.image }})">
+                        <div class="video">
+                            {{ mad.online|safe }}
+                        </div>
+                    </div>
+
+                    <div class="mad-title
+                                {% if forloop.counter0|divisibleby:2 %}
+                                    left
+                                {% else %}
+                                    right
+                                {% endif %}">
+                        <a href="/2016/{{ each_day.day.day }}/">{{ mad.title }}</a>
+                    </div>
+                    <p class="mad-author
+                             {% if forloop.counter0|divisibleby:2 %}
+                                 right
+                             {% else %}
+                                 left
+                             {% endif %}">
+                        {{ mad.author }}
+                    </p>
+                </div>
+
+                {% if forloop.first %}
+                <div class="vote-outer">
+
+                    <a class="vote js-vote" href="#"
+                       data-vote-limit-day="{{ each_day.day.vote_limit_day }}"
+                       data-team-num="{% if forloop.first %}{{ each_day.day.team1 }}{% else %}{{ each_day.day.team2 }}{% endif %}"></a>
+
+                </div>
+                {% endif %}
+
+                {% endfor %}
+            </div>
+        </li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+<div id="footer">
+    <div id="logo-skm"></div>
+    <p>Copyright © 2008-2016 SakuraMaiMad Studio</p>
+</div>
+{% endblock %}
