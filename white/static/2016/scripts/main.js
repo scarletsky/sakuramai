@@ -77,6 +77,41 @@
             return e.preventDefault();
         });
 
+        $('.vote').click(function (e) {
+          var data = {};
+          var teamNum = $.trim($(this).data('team-num'));
+          var limitDay = $.trim($(this).data('vote-limit-day'));
+
+          data['year'] = new Date().getFullYear();
+          data['team_num'] = teamNum;
+          data['vote_limit_day'] = limitDay;
+
+          $('#modal-vote').modal('show');
+
+          $.post('/vote-ajax/', data, function (ret) {
+
+            $('#modal-text').removeClass();
+            $('#modal-text').addClass('circle icon');
+            switch (ret) {
+                case '1':
+                  $('#modal-text').addClass('warning');
+                  $('#modal-text').text('投票结束');
+                  break;
+                case '2':
+                  $('#modal-text').addClass('warning');
+                  $('#modal-text').text('你已经投过票了');
+                  break;
+                default:
+                  $('#modal-text').addClass('check');
+                  $('#modal-text').text('感谢投票');
+            }
+
+            $('#modal-vote').modal('show');
+          });
+
+          return e.preventDefault();
+        });
+
         var initSingleForm = function() {
             $('#single-form.modal')
                 .modal({

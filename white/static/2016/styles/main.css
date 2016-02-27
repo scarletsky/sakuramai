@@ -349,6 +349,7 @@ html, body {
     width: 62px;
     height: 29px;
     display: inline-block;
+    outline: none;
     background-image: url('../images/vote.png');
     background-size: cover;
     background-repeat: no-repeat;

@@ -8,6 +8,11 @@
 {% block main %}
 
 <div id="overlay"></div>
+<div class="ui basic modal" id="modal-vote">
+    <div class="ui icon header">
+        <i class="warning circle icon" id="modal-text"></i>
+    </div>
+</div>
 
 <ul class="schedule-groups">
     {% for each_day in schedule %}
@@ -60,7 +65,7 @@
                 {% if forloop.first %}
                 <div class="vote-outer">
 
-                    <a class="vote js-vote" href="#"
+                    <a class="vote" href="#"
                        data-vote-limit-day="{{ each_day.day.vote_limit_day }}"
                        data-team-num="{% if forloop.first %}{{ each_day.day.team1 }}{% else %}{{ each_day.day.team2 }}{% endif %}"></a>
 

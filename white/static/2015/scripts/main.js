@@ -54,7 +54,7 @@
 
     return data;
   };
-  
+
 
   $(document).ready(function () {
     // info 页面
